@@ -1,7 +1,6 @@
 <div class="container d-flex flex-wrap gap-2 p-4">
     <div class="card border-success" style="width: 18rem;"  *ngFor="let estudiante of ListarEstudantes">
-      <!--TODO: Agregar imagen de alumnos-->  
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <img src="../../../assets/code-education-logo-icon-design-vector-22644747.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ estudiante.id }} - {{ estudiante.nombre }}</h5>
         <p class="card-text">Forma parte del curso de {{ estudiante.curso }}.</p>
