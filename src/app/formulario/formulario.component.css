@@ -1,7 +1,13 @@
 .titulo{
-    text-shadow: 2px 2px 5px rgb(110, 207, 240);
+    text-shadow: 2px 2px 5px royalblue;
 }
 
 .imgPrincipal{
     width: 100px;
+}
+
+.alerta{
+    color: black;
+    text-shadow: 2px 2px 5px rgb(255, 0, 0), -2px -2px 5px rgb(255, 0, 0);  
+    font-size: smaller;
 }

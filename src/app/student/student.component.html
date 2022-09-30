@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center flex-wrap gap-3 p-3">
-    <div class="card border-info bg-light bg-gradient " style="width: 16rem; --bs-bg-opacity: .5;"  *ngFor="let estudiante of ListarEstudantes">
+    <div class="card border-primary bg-light bg-gradient " style="width: 16rem; --bs-bg-opacity: .5;"  *ngFor="let estudiante of ListarEstudantes">
       <div class="d-flex justify-content-center aign-items-center p-2">
       <img src="../../assets/education.png" class="card-img-center w-50 alumno" alt="...">
       </div>
@@ -7,7 +7,7 @@
         <h5 class="card-title">{{ estudiante.id }} - {{ estudiante.nombre }}</h5>
         <p class="card-text" >Forma parte del curso de <span [ngClass]="estudiante.curso == 'Angular'? 'Angular':'otro' ">{{ estudiante.curso | uppercase }}</span>.</p>
         <div class="botones d-flex gap-2 flex-wrap">
-          <button class="btn btn-outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+          <button class="btn btn-outline-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
             <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
           </svg></button>
           <button class="btn btn-outline-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
