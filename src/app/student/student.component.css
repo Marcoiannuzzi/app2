@@ -10,3 +10,7 @@
 .otro{
     color: blue;
 }
+
+.alumno{
+    box-shadow: 2px 2px 5px rgb(110, 207, 240), -2px -2px 5px rgb(110, 207, 240);
+}

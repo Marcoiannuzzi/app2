@@ -5,3 +5,7 @@ a:hover{
 .link:hover {
     color: white;
 }
+
+.titulo{
+    text-shadow: 2px 2px 5px rgb(110, 207, 240);
+}
