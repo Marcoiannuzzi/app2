@@ -37,8 +37,17 @@ export class StudentComponent implements OnInit {
     id: 6,
     nombre: 'Gimena',
     curso: 'Python'
+  },
+  {
+    id: 7,
+    nombre: 'Luis',
+    curso: 'C#'
+  },
+  {
+    id: 8,
+    nombre: 'Miguel',
+    curso: 'Angular'
   }
-
 ];
   
 
