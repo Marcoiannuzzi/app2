@@ -12,4 +12,14 @@ export class AlumnoService {
   obtenerAlumnos(): Estudiante[] {
     return listaEstudiantes;
   }
+
+  obtenerAlumnoPorId(id:number):Estudiante | undefined{
+    const estudiante = listaEstudiantes.find((estudiante:Estudiante)=> estudiante.id === id);
+    return estudiante; 
+  }
+
+  eliminarAlumno(id:number):void{
+    const estudiante = listaEstudiantes.find((estudiante:Estudiante)=>estudiante.id === id);
+    
+  }
 }

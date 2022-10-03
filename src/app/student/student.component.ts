@@ -18,7 +18,7 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {
 
     this.ListarEstudantes = this.alumnoService.obtenerAlumnos();
-    
-  }
+
+  } 
 
 }
