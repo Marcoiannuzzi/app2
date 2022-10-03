@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Estudiante } from '../Estudiantes/Estudiantes';
+import { listaEstudiantes } from '../Mocks/EstudiantesMock';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +8,8 @@ import { Injectable } from '@angular/core';
 export class AlumnoService {
 
   constructor() { }
+
+  obtenerAlumnos(): Estudiante[] {
+    return listaEstudiantes;
+  }
 }
