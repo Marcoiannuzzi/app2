@@ -10,13 +10,14 @@ import { InicioComponent } from './inicio/inicio.component';
 import { StudentComponent } from './student/student.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [ 
   { path: '', component: LoginComponent }, 
-  { path: 'inicio', component:LoginComponent},
-  { path: 'alumnos', component: InicioComponent },
+  { path: 'inicio', component:InicioComponent},
+  { path: 'alumnos', component: StudentComponent },
   { path: 'formulario', component: FormularioComponent },
-  {path:'cursos', component: CursosComponent} ];
+  { path:'cursos', component: CursosComponent} ];
 
 
 @NgModule({
@@ -26,7 +27,8 @@ const routes: Routes = [
     FormularioComponent,
     InicioComponent,
     CursosComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

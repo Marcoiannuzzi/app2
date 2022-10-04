@@ -14,3 +14,11 @@
 .alumno{
     box-shadow: 2px 2px 5px royalblue, -2px -2px 5px royalblue;
 }
+
+.imgPrincipal{
+    width: 100px;
+}
+
+.titulo{
+    text-shadow: 2px 2px 5px royalblue;
+}
