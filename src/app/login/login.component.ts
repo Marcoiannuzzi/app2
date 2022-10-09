@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../Servicios/auth.service';
 
 @Component({
@@ -8,12 +9,16 @@ import { AuthService } from '../Servicios/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService, private route:Router) { }
 
   ngOnInit(): void {
 
     this.authService.login("eve.holt@reqres.in", "cityslicka").subscribe((data)=>console.log(data));
 
+  }
+
+  entrar():void{
+    this.route.navigate(['/inicio']);
   }
 
 }

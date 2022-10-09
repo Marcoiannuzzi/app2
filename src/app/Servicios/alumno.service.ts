@@ -20,6 +20,9 @@ export class AlumnoService {
 
   eliminarAlumno(id:number):void{
     const estudiante = listaEstudiantes.find((estudiante:Estudiante)=>estudiante.id === id);
-    
+    if (estudiante){
+       const index = listaEstudiantes.indexOf(estudiante)
+       listaEstudiantes.splice(index,1);
+    }
   }
 }

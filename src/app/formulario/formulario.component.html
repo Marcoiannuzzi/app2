@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column justify-content-center align-items-center gap-4">
-  <div class="d-flex justify-content-center align-items-center m-4">
+  <div class="d-flex flex-wrap  m-4">
     <img src="../../assets/school.png" class="imgPrincipal" alt="logo principal de aplicacion">
     <h1 class="titulo text-center p-3 m-3">Registro de nuevo alumno</h1>
 </div>
@@ -24,8 +24,10 @@
             <input type="text" class="form-control" id="curso" placeholder="Ingrese el curso del alumno" formControlName="curso">
             <p class="alerta" *ngIf="formAlumno.touched && formAlumno.get('curso')?.errors?.['minlength']" >Este campo es obligatorio y debe tenes mas de 2 caracteres</p>
           </div>
-          <button type="submit" class="btn btn-outline-primary text-white" [disabled]="formAlumno.invalid" >Registrar</button>
-          <a routerLink="/alumnos" class="btn btn-outline-danger m-3">Volver</a>
+          <div class="d-flex justify-content-center align-items-center">
+            <button type="submit" class="btn btn-outline-primary text-white" [disabled]="formAlumno.invalid" >Registrar</button>
+            <a routerLink="/alumnos" class="btn btn-outline-danger m-3">Volver</a>
+          </div>
     </form>
 
 

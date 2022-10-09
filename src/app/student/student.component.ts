@@ -21,4 +21,8 @@ export class StudentComponent implements OnInit {
 
   } 
 
+  eliminarAlumno(id:number):void{
+    this.alumnoService.eliminarAlumno(id);
+  }
+
 }
