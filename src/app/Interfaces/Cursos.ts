@@ -1,7 +1,8 @@
 export interface Cursos {
+    comision:number;
     nombre: string;
     profesor: string;
     comienzo: Date;
     finalizacion:Date;
-    logo:string;
+    inscripcionAbierta:boolean;
 }

@@ -6,6 +6,37 @@
 </div>
 
 <div class="d-flex justify-content-center align-items-center m-4">
-    <h1 class="titulo text-center p-3 m-3">SITIO EN CONSTRUCCION</h1>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Curso </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="profesor">
+        <th mat-header-cell *matHeaderCellDef> Profesor </th>
+        <td mat-cell *matCellDef="let element"> {{element.profesor}} </td>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="comienzo">
+        <th mat-header-cell *matHeaderCellDef>Comienza</th>
+        <td mat-cell *matCellDef="let element"> {{element.comienzo}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="finalizacion">
+        <th mat-header-cell *matHeaderCellDef>Finaliza</th>
+        <td mat-cell *matCellDef="let element"> {{element.finalizacion}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
 </div>
 
