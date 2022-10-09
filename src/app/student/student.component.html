@@ -13,7 +13,7 @@
       <img src="../../assets/education.png" class="card-img-center w-50 alumno" alt="...">
       </div>
       <div class="card-body">
-        <h5 class="card-title">{{ estudiante.id }} - {{ estudiante.nombre | agregarApellido:estudiante.nombre +" "+ estudiante.apellido }} </h5>
+        <h5 class="card-title" appEstiloTitulos>{{ estudiante.id }} - {{ estudiante.nombre | agregarApellido:estudiante.nombre +" "+ estudiante.apellido }} </h5>
         <p class="card-text" >Forma parte del curso de <span [ngClass]="estudiante.curso == 'Angular'? 'Angular':'otro' ">{{ estudiante.curso | uppercase }}</span>.</p>
         <div class="botones d-flex gap-2 flex-wrap">
           <button class="btn btn-outline-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">

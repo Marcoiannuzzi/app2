@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { BooleanoATextoPipe } from './Pipes/booleano-atexto.pipe';
 import { AgregarApellidoPipe } from './Pipes/agregar-apellido.pipe';
+import { EstiloTitulosDirective } from './directives/estilo-titulos.directive';
 
 const routes: Routes = [ 
   { path: '', component: LoginComponent }, 
@@ -34,7 +35,8 @@ const routes: Routes = [
     LoginComponent,
     NavbarComponent,
     BooleanoATextoPipe,
-    AgregarApellidoPipe
+    AgregarApellidoPipe,
+    EstiloTitulosDirective
   ],
   imports: [
     BrowserModule,

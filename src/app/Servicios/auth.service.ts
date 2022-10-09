@@ -11,17 +11,12 @@ export class AuthService {
 
 login(email:string, password:string):Observable<any>{
 
-  let body={
-    email: email,
-    password:password
+    let body={
+      email: email,
+      password:password
+    }
+
+    return this.http.post('https://reqres.in/api/login', body);
   }
-
-  return this.http.post('https://reqres.in/api/login', body);
-}
-
-
-
-
-
-
+  
 }
