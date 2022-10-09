@@ -1,4 +1,4 @@
-import { Estudiante } from "../Estudiantes/Estudiantes";
+import { Estudiante } from "../Interfaces/Estudiantes";
 
 export const listaEstudiantes: Estudiante[] = [
     {

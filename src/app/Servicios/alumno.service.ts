@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Estudiante } from '../Estudiantes/Estudiantes';
+import { Estudiante } from '../Interfaces/Estudiantes';
 import { listaEstudiantes } from '../Mocks/EstudiantesMock';
 
 @Injectable({
