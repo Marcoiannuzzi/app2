@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { BooleanoATextoPipe } from './Pipes/booleano-atexto.pipe';
+import { AgregarApellidoPipe } from './Pipes/agregar-apellido.pipe';
 
 const routes: Routes = [ 
   { path: '', component: LoginComponent }, 
@@ -30,7 +32,9 @@ const routes: Routes = [
     InicioComponent,
     CursosComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    BooleanoATextoPipe,
+    AgregarApellidoPipe
   ],
   imports: [
     BrowserModule,
