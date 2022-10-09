@@ -12,7 +12,8 @@ export class CursosComponent implements OnInit {
   listaCursos! : Cursos[];
   dataSource!: Cursos[];
 
-  displayedColumns: string[] = ['nombre', 'profesor', 'comienzo', 'finalizacion'];
+
+  displayedColumns: string[] = ['comision','nombre',  'profesor', 'comienzo', 'finalizacion', 'inscripcionAbierta', 'acciones'];
 
   constructor(private cursoService:CursoService) { }
 
