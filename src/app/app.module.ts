@@ -11,6 +11,7 @@ import { StudentComponent } from './student/student.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [ 
   { path: '', component: LoginComponent }, 
@@ -34,7 +35,8 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
