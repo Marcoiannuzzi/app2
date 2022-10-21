@@ -7,6 +7,7 @@ import { AgregarApellidoPipe } from './Pipes/agregar-apellido.pipe';
 import { BooleanoATextoPipe } from './Pipes/booleano-atexto.pipe';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [ 
   { path: 'inicio', component:InicioComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
     AgregarApellidoPipe,
     EstiloTitulosDirective,
     RouterModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }
