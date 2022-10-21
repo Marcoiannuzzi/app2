@@ -1,8 +1,22 @@
 .imgPrincipal{
     width: 100px;
 }
+.espaciador{
+    display: flex;
+    flex: 1 1 auto;
+}
+
+
+h3, p{
+    text-shadow: 2px 2px 5px royalblue;
+    font-size: larger;
+}
 
 .titulo{
+    font-size: xx-large;
     text-shadow: 2px 2px 5px royalblue;
+    font-weight: 700;
 }
+
+
 
