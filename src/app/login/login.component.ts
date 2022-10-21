@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../Servicios/auth.service';
+import { AuthService } from '../core/Servicios/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -28,12 +28,15 @@ export class LoginComponent implements OnInit {
   // "password": "cityslicka"
 
   entrar():void{
-    this.authService.login(this.formLogin.value.email, this.formLogin.value.password).subscribe((data)=>{
+      if(this.formLogin.value.email != "eve.holt@reqres.in" || this.formLogin.value.password != "cityslicka" ){
+        alert('Usuario o contraseña incorrectos')
+      }else{
+      this.authService.login(this.formLogin.value.email, this.formLogin.value.password).subscribe((data)=>{
       this.token=data;
       sessionStorage.setItem('token', JSON.stringify(this.token));
       this.route.navigate(['/inicio']);       
       this.formLogin.reset()
-    })
+      })
   }
-
+  }
 }

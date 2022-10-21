@@ -6,37 +6,23 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormularioComponent } from './formulario/formulario.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { StudentComponent } from './student/student.component';
-import { CursosComponent } from './cursos/cursos.component';
 import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { BooleanoATextoPipe } from './Pipes/booleano-atexto.pipe';
-import { AgregarApellidoPipe } from './Pipes/agregar-apellido.pipe';
-import { EstiloTitulosDirective } from './directives/estilo-titulos.directive';
+import { SharedModule } from './shared/shared.module';
+import { CursosModule } from './cursos/cursos.module';
+import { StudentModule } from './student/student.module';
 
 const routes: Routes = [ 
   { path: '', component: LoginComponent }, 
-  { path: 'inicio', component:InicioComponent},
-  { path: 'alumnos', component: StudentComponent },
-  { path: 'formulario', component: FormularioComponent },
-  { path:'cursos', component: CursosComponent} ];
+  { path: 'formulario', component: FormularioComponent }]
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentComponent,
     FormularioComponent,
-    InicioComponent,
-    CursosComponent,
     LoginComponent,
-    NavbarComponent,
-    BooleanoATextoPipe,
-    AgregarApellidoPipe,
-    EstiloTitulosDirective
   ],
   imports: [
     BrowserModule,
@@ -44,7 +30,10 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
+    CursosModule,
+    StudentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

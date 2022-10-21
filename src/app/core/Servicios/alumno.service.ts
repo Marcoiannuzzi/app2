@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Estudiante } from '../Interfaces/Estudiantes';
-import { listaEstudiantes } from '../Mocks/EstudiantesMock';
+import { Estudiante } from '../../shared/Interfaces/Estudiantes';
+import { listaEstudiantes } from '../../shared/Mocks/EstudiantesMock';
 
 @Injectable({
   providedIn: 'root'
