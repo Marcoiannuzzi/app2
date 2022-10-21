@@ -6,12 +6,12 @@
     <form class="col-5" [formGroup]="formAlumno" (ngSubmit)="registrarAlumno()" >
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre: </label>
-            <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre del alumno" formControlName="nombre" >
+            <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" formControlName="nombre" >
             <p class="alerta" *ngIf="formAlumno.touched && formAlumno.get('nombre')?.errors?.['minlength']" >Este campo es obligatorio y debe tenes mas de 3 caracteres</p>
           </div>
           <div class="mb-3">
             <label for="apellido" class="form-label">Apellido:</label>
-            <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido del alumno" formControlName="apellido">
+            <input type="text" class="form-control" id="apellido" placeholder="Ingrestu apellido" formControlName="apellido">
             <p class="alerta" *ngIf="formAlumno.touched && formAlumno.get('apellido')?.errors?.['minlength']" >Este campo es obligatorio y debe tenes mas de 3 caracteres</p>
           </div>
           <div class="mb-3">
@@ -21,7 +21,7 @@
           </div>
           <div class="mb-3">
             <label for="curso" class="form-label">Curso: </label>
-            <input type="text" class="form-control" id="curso" placeholder="Ingrese el curso del alumno" formControlName="curso">
+            <input type="text" class="form-control" id="curso" placeholder="Elije tu curso" formControlName="curso">
             <p class="alerta" *ngIf="formAlumno.touched && formAlumno.get('curso')?.errors?.['minlength']" >Este campo es obligatorio y debe tenes mas de 2 caracteres</p>
           </div>
           <div class="d-flex justify-content-center align-items-center">

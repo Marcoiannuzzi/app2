@@ -8,6 +8,7 @@ import { BooleanoATextoPipe } from './Pipes/booleano-atexto.pipe';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [ 
   { path: 'inicio', component:InicioComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
     NavbarComponent,
     BooleanoATextoPipe,
     AgregarApellidoPipe,
-    EstiloTitulosDirective
+    EstiloTitulosDirective,
+    FooterComponent
   ],
   imports: [
     CommonModule,
