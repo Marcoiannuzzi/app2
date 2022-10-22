@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
 import { AlumnoService } from '../core/Servicios/alumno.service';
 
@@ -11,7 +12,7 @@ export class StudentComponent implements OnInit {
   
   listaEstudantes: Estudiante[] = [];
   
-  constructor(private alumnoService:AlumnoService) { 
+  constructor(private alumnoService:AlumnoService, private router:Router) { 
   }
 
   ngOnInit(): void {
@@ -20,6 +21,11 @@ export class StudentComponent implements OnInit {
 
   eliminarAlumno(id:number):void{
     this.alumnoService.eliminarAlumno(id);
+  }
+
+  editarAlumno(estudiante:Estudiante){
+    this.router.navigate(['/editar', estudiante.id])
+ 
   }
 
 }

@@ -5,16 +5,19 @@ import { SharedModule } from '../shared/shared.module';
 import { StudentComponent } from './student.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormularioComponent } from './formulario/formulario.component';
+import { EditarComponent } from './editar/editar.component';
 
 const routes: Routes = [ 
   { path: 'alumnos', component: StudentComponent },
-  { path: 'formulario', component: FormularioComponent }
+  { path: 'formulario', component: FormularioComponent },
+  { path: 'editar', component:EditarComponent}
 ]
 
 @NgModule({
   declarations: [
     StudentComponent,
-    FormularioComponent
+    FormularioComponent,
+    EditarComponent
   ],
   imports: [
     CommonModule,

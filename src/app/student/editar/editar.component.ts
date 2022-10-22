@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AlumnoService } from 'src/app/core/Servicios/alumno.service';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
 
+
+
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css']
+  selector: 'app-editar',
+  templateUrl: './editar.component.html',
+  styleUrls: ['./editar.component.css']
 })
-export class FormularioComponent implements OnInit {
+export class EditarComponent implements OnInit {
 
   formAlumno!:FormGroup;
 
-  constructor( private fb:FormBuilder, private alumnoService:AlumnoService, private route:Router) {
+
+  constructor( private fb:FormBuilder, private aRoute:ActivatedRoute) {
     this.formAlumno = this.fb.group({
       dni:new FormControl ('', [Validators.required, Validators.minLength(3)]),
       nombre:new FormControl ('', [Validators.required, Validators.minLength(3)]),
@@ -24,18 +27,12 @@ export class FormularioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const id =this.aRoute.snapshot.paramMap.get('id');
+    console.log(id);
+  
   }
 
-  registrarAlumno():void{
-    let nuevoAlumno:Estudiante={
-      id:this.formAlumno.get('dni')?.value,
-      nombre:this.formAlumno.get('nombre')?.value,
-      apellido:this.formAlumno.get('apellido')?.value,
-      email:this.formAlumno.get('email')?.value,
-      curso:this.formAlumno.get('curso')?.value,
-    }
-    this.alumnoService.agregarAlumno(nuevoAlumno);
-    this.route.navigate(['/alumnos']);
+  editarAlumno(){
+    
   }
-
 }

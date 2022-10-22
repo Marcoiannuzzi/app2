@@ -19,8 +19,11 @@ export class CursoService {
   }
 
   eliminarCurso(comision:number):void{
-      let cursoIndex = listaCursos.findIndex((curso:Cursos)=>curso.comision == comision);
-      listaCursos.slice(cursoIndex, 1);
+    const curso = listaCursos.find((curso:Cursos)=>curso.comision === comision);
+    if (curso){
+       const index = listaCursos.indexOf(curso)
+       listaCursos.splice(index,1);
+    }
   }
 
 
