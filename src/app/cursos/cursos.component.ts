@@ -22,8 +22,8 @@ export class CursosComponent implements OnInit {
     this.dataSource=this.listaCursos;
   }
 
-  eliminarCurso(){
-    
+  eliminarCurso(comision:number){
+    this.cursoService.eliminarCurso(comision);    
   }
 
 }

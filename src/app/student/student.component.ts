@@ -9,10 +9,10 @@ import { AlumnoService } from '../core/Servicios/alumno.service';
 })
 export class StudentComponent implements OnInit {
   
-  listaEstudantes: Estudiante[] = [
-];
+  listaEstudantes: Estudiante[] = [];
   
-  constructor(private alumnoService:AlumnoService) { }
+  constructor(private alumnoService:AlumnoService) { 
+  }
 
   ngOnInit(): void {
     this.listaEstudantes = this.alumnoService.obtenerAlumnos();

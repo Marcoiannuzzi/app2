@@ -21,8 +21,12 @@ export class AlumnoService {
     const estudiante = listaEstudiantes.find((estudiante:Estudiante)=> estudiante.id === id);
     return estudiante; 
   }
-  
 
+  editarAlumno(alumno:Estudiante):void{
+    const estudianteIndex = listaEstudiantes.findIndex((estudiante:Estudiante)=>estudiante.id === alumno.id);
+    listaEstudiantes[estudianteIndex]=alumno;
+  }
+  
   eliminarAlumno(id:number):void{
     const estudiante = listaEstudiantes.find((estudiante:Estudiante)=>estudiante.id === id);
     if (estudiante){
