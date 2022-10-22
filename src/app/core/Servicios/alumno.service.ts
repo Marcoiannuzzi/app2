@@ -9,6 +9,10 @@ export class AlumnoService {
 
   constructor() { }
 
+  agregarAlumno(alumno:Estudiante):void{
+    listaEstudiantes.push(alumno);
+  }
+
   obtenerAlumnos(): Estudiante[] {
     return listaEstudiantes;
   }
@@ -16,6 +20,10 @@ export class AlumnoService {
   obtenerAlumnoPorId(id:number):Estudiante | undefined{
     const estudiante = listaEstudiantes.find((estudiante:Estudiante)=> estudiante.id === id);
     return estudiante; 
+  }
+
+  actualizarAlumno(alumno:Estudiante){
+    const alumnoActualizar = listaEstudiantes.find((estudiante)=>estudiante.id == alumno.id);
   }
 
   eliminarAlumno(id:number):void{

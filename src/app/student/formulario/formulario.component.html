@@ -4,6 +4,12 @@
     <h1 class="titulo text-center p-3 m-3">Registro de nuevo alumno</h1>
 </div>
     <form class="col-5" [formGroup]="formAlumno" (ngSubmit)="registrarAlumno()" >
+
+      <div class="mb-3">
+        <label for="dni" class="form-label">Dni: </label>
+        <input type="number" class="form-control" id="dni" placeholder="Ingresa tu dni" formControlName="dni" >
+        <p class="alerta" *ngIf="formAlumno.touched && formAlumno.get('dni')?.errors?.['minlength']" >Este campo es obligatorio y debe tenes mas de 3 caracteres</p>
+      </div>
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre: </label>
             <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" formControlName="nombre" >

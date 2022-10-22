@@ -9,16 +9,13 @@ import { AlumnoService } from '../core/Servicios/alumno.service';
 })
 export class StudentComponent implements OnInit {
   
-  ListarEstudantes: Estudiante[] = [
+  listaEstudantes: Estudiante[] = [
 ];
   
-
   constructor(private alumnoService:AlumnoService) { }
 
   ngOnInit(): void {
-
-    this.ListarEstudantes = this.alumnoService.obtenerAlumnos();
-
+    this.listaEstudantes = this.alumnoService.obtenerAlumnos();
   } 
 
   eliminarAlumno(id:number):void{
