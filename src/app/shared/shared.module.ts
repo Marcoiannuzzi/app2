@@ -36,6 +36,7 @@ const routes: Routes = [
     EstiloTitulosDirective,
     RouterModule,
     ReactiveFormsModule,
+    FooterComponent
   ]
 })
 export class SharedModule { }

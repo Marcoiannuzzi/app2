@@ -22,4 +22,8 @@ export class CursosComponent implements OnInit {
     this.dataSource=this.listaCursos;
   }
 
+  eliminarCurso(){
+    
+  }
+
 }

@@ -21,10 +21,7 @@ export class AlumnoService {
     const estudiante = listaEstudiantes.find((estudiante:Estudiante)=> estudiante.id === id);
     return estudiante; 
   }
-
-  actualizarAlumno(alumno:Estudiante){
-    const alumnoActualizar = listaEstudiantes.find((estudiante)=>estudiante.id == alumno.id);
-  }
+  
 
   eliminarAlumno(id:number):void{
     const estudiante = listaEstudiantes.find((estudiante:Estudiante)=>estudiante.id === id);

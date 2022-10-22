@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlumnoService } from 'src/app/core/Servicios/alumno.service';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
 
@@ -12,7 +13,7 @@ export class FormularioComponent implements OnInit {
 
   formAlumno!:FormGroup;
 
-  constructor( private fb:FormBuilder, private alimnoService:AlumnoService) {
+  constructor( private fb:FormBuilder, private alimnoService:AlumnoService, private route:Router) {
     this.formAlumno = this.fb.group({
       dni:new FormControl ('', [Validators.required, Validators.minLength(3)]),
       nombre:new FormControl ('', [Validators.required, Validators.minLength(3)]),
@@ -34,7 +35,7 @@ export class FormularioComponent implements OnInit {
       curso:this.formAlumno.get('curso')?.value,
     }
     this.alimnoService.agregarAlumno(nuevoAlumno);
-    return console.log(this.formAlumno.value);
+    this.route.navigate(['/alumnos']);
   }
 
 }
