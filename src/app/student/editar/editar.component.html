@@ -7,7 +7,7 @@
   
         <div class="mb-3">
           <label for="dni" class="form-label">Dni: </label>
-          <input type="number" class="form-control" id="dni" placeholder="Ingresa tu dni" formControlName="dni" >
+          <input type="text" class="form-control" id="dni" placeholder="Ingresa tu dni" formControlName="dni" >
           <p class="alerta" *ngIf="formAlumno.touched && formAlumno.get('dni')?.errors?.['minlength']" >Este campo es obligatorio y debe tenes mas de 3 caracteres</p>
         </div>
           <div class="mb-3">

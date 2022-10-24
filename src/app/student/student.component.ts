@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
 import { AlumnoService } from '../core/Servicios/alumno.service';
 
@@ -23,9 +23,6 @@ export class StudentComponent implements OnInit {
     this.alumnoService.eliminarAlumno(id);
   }
 
-  editarAlumno(estudiante:Estudiante){
-    this.router.navigate(['/editar', estudiante.id])
- 
-  }
+
 
 }

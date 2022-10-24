@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlumnoService } from 'src/app/core/Servicios/alumno.service';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
 
@@ -15,24 +15,33 @@ export class EditarComponent implements OnInit {
 
   formAlumno!:FormGroup;
 
+  constructor( private fb:FormBuilder, private aRoute:ActivatedRoute, private alumnoService :AlumnoService, private router:Router) {
 
-  constructor( private fb:FormBuilder, private aRoute:ActivatedRoute) {
-    this.formAlumno = this.fb.group({
-      dni:new FormControl ('', [Validators.required, Validators.minLength(3)]),
-      nombre:new FormControl ('', [Validators.required, Validators.minLength(3)]),
-      apellido: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]),
-      curso: new FormControl('', [Validators.required ,Validators.minLength(2)]),
-   });
   }
 
   ngOnInit(): void {
-    const id =this.aRoute.snapshot.paramMap.get('id');
-    console.log(id);
-  
-  }
+    this.aRoute.paramMap.subscribe((data)=>{
+      this.formAlumno = this.fb.group({
+        dni: [data.get('id'), [Validators.required, Validators.minLength(3)]],
+        nombre:[data.get('nombre'), [Validators.required, Validators.minLength(3)]],
+        apellido: [data.get('apellido'), [Validators.required, Validators.minLength(3)]],
+        email: [data.get('email'), [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]],
+        curso: [data.get('curso'), [Validators.required ,Validators.minLength(2)]]      
+     });
+    })
+   } 
 
-  editarAlumno(){
-    
-  }
+   editarAlumno(){
+    let alumnoEditado : Estudiante ={
+      id:this.formAlumno.value.dni,
+      nombre:this.formAlumno.value.nombre,
+      apellido:this.formAlumno.value.apellido,
+      email:this.formAlumno.value.email,
+      curso:this.formAlumno.value.curso
+    }
+    this.alumnoService.editarAlumno(alumnoEditado);
+    this.router.navigate(['/alumnos'])
+
+   }
 }
+
