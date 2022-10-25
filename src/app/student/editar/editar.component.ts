@@ -22,7 +22,7 @@ export class EditarComponent implements OnInit {
   ngOnInit(): void {
     this.aRoute.paramMap.subscribe((data)=>{
       this.formAlumno = this.fb.group({
-        dni: [data.get('id'), [Validators.required, Validators.minLength(3)]],
+        dni: [parseInt( data.get('id') || "0"), [Validators.required, Validators.minLength(3)]],
         nombre:[data.get('nombre'), [Validators.required, Validators.minLength(3)]],
         apellido: [data.get('apellido'), [Validators.required, Validators.minLength(3)]],
         email: [data.get('email'), [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]],
