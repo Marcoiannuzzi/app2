@@ -2,7 +2,7 @@
 
     <div class="container-fluid">
 
-      <a class="links navbar-brand titulo" routerLink="/inicio">School of Code</a>
+      <a class="links navbar-brand titulo" >School of Code</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,7 +18,8 @@
               <a class="links nav-link active link" routerLink="/cursos">Cursos</a>
             </li>
           </ul>
-            <a class=" btn btn-outline-danger text-white" routerLink="">Logout</a>
+            <a class=" btn btn-outline-danger text-white" *ngIf="token!=null" (click)="salir()">Logout</a>
+            <a class=" btn btn-outline-primary text-white" *ngIf="token==null" routerLink="/login">Login</a>
         </div> 
     </div>
   </nav>

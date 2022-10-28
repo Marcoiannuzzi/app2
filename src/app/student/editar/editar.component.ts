@@ -39,7 +39,7 @@ export class EditarComponent implements OnInit {
       email:this.formAlumno.value.email,
       curso:this.formAlumno.value.curso
     }
-    this.alumnoService.editarAlumno(alumnoEditado);
+    this.alumnoService.editarAlumno(alumnoEditado).subscribe();
     this.router.navigate(['/alumnos'])
 
    }

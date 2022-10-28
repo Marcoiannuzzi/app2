@@ -1,63 +1,61 @@
 {
   "estudiantes": [
-      {
-          "id": 235648749,
-          "nombre": "Joaquin",
-          "apellido": "Gonzalez",
-          "email": "joaquingonzales@gmail.com",
-          "curso": "Angular"
-        },
-        {
-          "id": 32654987,
-          "nombre": "Maria",
-          "apellido": "Perez",
-          "email": "",
-          "curso": "React"
-        },
-        {
-          "id": 25632145,
-          "nombre": "José",
-          "apellido": "Garcia",
-          "email": "josegarcia@gmail.com",
-          "curso": "Vue"
-        },
-        {
-          "id": 29568741,
-          "nombre": "Pedro",
-          "apellido": "Ramirez",
-          "email": "pedro95@gmail.com",
-          "curso": ".Net"
-        },
-        {
-          "id": 38526498,
-          "nombre": "Juan",
-          "apellido": "Gomez",
-          "email": "juan1954@hotmail.com",
-          "curso": "Java"
-        },
-        {
-          "id": 3526487,
-          "nombre": "Gimena",
-          "apellido": "Vergara",
-          "email": "gimenagonzales@gmail.com",
-          "curso": "Python"
-        },
-        {
-          "id": 36154879,
-          "nombre": "Luis",
-          "apellido": "Fernandes",
-          "email": "fernandezluis@gmail.com",
-          "curso": "C#"
-        },
-        {
-          "id": 36251478,
-          "nombre": "Miguel",
-          "apellido": "Nieto",
-          "email": "",
-          "curso": "Angular"
-        }
-  
-  
+    {
+      "id": 235648749,
+      "nombre": "Joaquin",
+      "apellido": "Gonzalez",
+      "email": "joaquingonzales@gmail.com",
+      "curso": "Angular"
+    },
+    {
+      "id": 251649874,
+      "nombre": "Daniel",
+      "apellido": "Gimenez",
+      "email": "danig21@gmail.com",
+      "curso": "VueJs"
+    },
+    {
+      "id": 52641985,
+      "nombre": "Claudia",
+      "apellido": "Olmedo",
+      "email": "clau5487@hotmail.com",
+      "curso": "Angular"
+    },
+    {
+      "id": 23654987,
+      "nombre": "Joaquin",
+      "apellido": "Altamirano",
+      "email": "joaco@gmail.com",
+      "curso": "C#"
+    },
+    {
+      "id": 21654987,
+      "nombre": "David",
+      "apellido": "Esteban",
+      "email": "david@gmail.com",
+      "curso": "Angular"
+    },
+    {
+      "id": 31145353,
+      "nombre": "Marco",
+      "apellido": "Iannuzzi",
+      "email": "marcoiann@live.com",
+      "curso": "Angular"
+    },
+    {
+      "id": 32451687,
+      "nombre": "Daniela",
+      "apellido": "Godoy",
+      "email": "danigo@hotmai.com",
+      "curso": "Angular"
+    },
+    {
+      "id": 36251465,
+      "nombre": "Lucas",
+      "apellido": "Oviedo",
+      "email": "loviedo@hotmail.com",
+      "curso": "React"
+    }
   ],
   "comments": [
     {

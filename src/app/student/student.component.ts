@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
 import { AlumnoService } from '../core/Servicios/alumno.service';
 
@@ -10,20 +11,24 @@ import { AlumnoService } from '../core/Servicios/alumno.service';
 })
 export class StudentComponent implements OnInit {
   
-  listaEstudantes: Estudiante[] = [];
+
+  listaEstudiantes$!:BehaviorSubject<Estudiante[]>
   
   constructor(private alumnoService:AlumnoService, private router:Router) { 
   }
 
   ngOnInit(): void {
     this.alumnoService.obtenerAlumnos().subscribe({
-      next:((data)=>this.listaEstudantes = data)
+      next:((data)=>this.listaEstudiantes$=new BehaviorSubject<Estudiante[]>(data))
     });
+    
   } 
 
   eliminarAlumno(id:number):void{
-    this.alumnoService.eliminarAlumno(id);
+    this.alumnoService.eliminarAlumno(id).subscribe(()=> alert(`El alumno con el dni ${id} se ha borrado correctamente`));
+    this.router.navigate(['alumnos'])
   }
+  
 
 
 

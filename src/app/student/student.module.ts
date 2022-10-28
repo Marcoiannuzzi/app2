@@ -6,11 +6,12 @@ import { StudentComponent } from './student.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormularioComponent } from './formulario/formulario.component';
 import { EditarComponent } from './editar/editar.component';
+import { LoginGuardGuard } from '../login-guard.guard';
 
 const routes: Routes = [ 
-  { path: 'alumnos', component: StudentComponent },
-  { path: 'formulario', component: FormularioComponent },
-  { path: 'editar', component:EditarComponent}
+  { path: 'alumnos', component: StudentComponent, canActivate:[LoginGuardGuard] },
+  { path: 'formulario', component: FormularioComponent, canActivate:[LoginGuardGuard]  },
+  { path: 'editar', component:EditarComponent, canActivate:[LoginGuardGuard] }
 ]
 
 @NgModule({

@@ -34,7 +34,8 @@ export class FormularioComponent implements OnInit {
       email:this.formAlumno.get('email')?.value,
       curso:this.formAlumno.get('curso')?.value,
     }
-    this.alumnoService.agregarAlumno(nuevoAlumno);
+    
+    this.alumnoService.agregarAlumno(nuevoAlumno).subscribe();
     this.route.navigate(['/alumnos']);
   }
 

@@ -18,5 +18,9 @@ login(email:string, password:string):Observable<any>{
 
     return this.http.post('https://reqres.in/api/login', body);
   }
+
+  salir(){
+    sessionStorage.removeItem('token');
+  }
   
 }

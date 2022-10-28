@@ -14,6 +14,7 @@ export class AlumnoService {
   obtenerAlumnos():Observable<Estudiante[]>{
     return this.http.get<Estudiante[]>('http://localhost:3000/estudiantes');
   }
+
   agregarAlumno(alumno:Estudiante):Observable<Estudiante>{
     return this.http.post<Estudiante>('http://localhost:3000/estudiantes/', alumno);
 
@@ -23,12 +24,12 @@ export class AlumnoService {
     return this.http.get<Estudiante>(`http://localhost:3000/estudiantes/${id}`)
   }
 
-  editarAlumno(alumno:Estudiante){
+  editarAlumno(alumno:Estudiante):Observable<any>{
     return this.http.put(`http://localhost:3000/estudiantes/${alumno.id}`, alumno)
   }
   
-  eliminarAlumno(id:number){
-    return this.http.get<Estudiante[]>(`http://localhost:3000/estudiantes/${id}`)
+  eliminarAlumno(id:number):Observable<any>{
+    return this.http.delete(`http://localhost:3000/estudiantes/${id}`)
 }
 
 }

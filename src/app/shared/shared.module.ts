@@ -11,7 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [ 
+  { path: '' , redirectTo:'inicio', pathMatch:'full'},
   { path: 'inicio', component:InicioComponent},
+  // { path : '**', component: }
  ];
 
 

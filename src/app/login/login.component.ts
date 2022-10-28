@@ -32,11 +32,14 @@ export class LoginComponent implements OnInit {
         alert('Usuario o contraseña incorrectos')
       }else{
       this.authService.login(this.formLogin.value.email, this.formLogin.value.password).subscribe((data)=>{
-      this.token=data;
+      this.token=data.token;
       sessionStorage.setItem('token', JSON.stringify(this.token));
       this.route.navigate(['/inicio']);       
       this.formLogin.reset()
       })
   }
   }
+
+
+
 }

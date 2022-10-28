@@ -12,7 +12,7 @@ import { CursosModule } from './cursos/cursos.module';
 import { StudentModule } from './student/student.module';
 
 const routes: Routes = [ 
-  { path: '', component: LoginComponent }, 
+  { path: 'login', component: LoginComponent }, 
   ]
 
 
