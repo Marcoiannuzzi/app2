@@ -1,38 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Estudiante } from '../../shared/Interfaces/Estudiantes';
-import { listaEstudiantes } from '../../shared/Mocks/EstudiantesMock';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlumnoService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  agregarAlumno(alumno:Estudiante):void{
-    listaEstudiantes.push(alumno);
+  obtenerAlumnos():Observable<Estudiante[]>{
+    return this.http.get<Estudiante[]>('http://localhost:3000/estudiantes');
+  }
+  agregarAlumno(alumno:Estudiante):Observable<Estudiante>{
+    return this.http.post<Estudiante>('http://localhost:3000/estudiantes/', alumno);
+
   }
 
-  obtenerAlumnos(): Estudiante[] {
-    return listaEstudiantes;
+  obtenerAlumnoPorId(id:number):Observable<Estudiante>{
+    return this.http.get<Estudiante>(`http://localhost:3000/estudiantes/${id}`)
   }
 
-  obtenerAlumnoPorId(id:number):Estudiante | undefined{
-    const estudiante = listaEstudiantes.find((estudiante:Estudiante)=> estudiante.id === id);
-    return estudiante; 
-  }
-
-  editarAlumno(alumno:Estudiante):void{
-    let i = listaEstudiantes.findIndex((estudiante:Estudiante)=>estudiante.id == alumno.id);
-    listaEstudiantes[i]=alumno;
-    console.log(alumno)
+  editarAlumno(alumno:Estudiante){
+    return this.http.put(`http://localhost:3000/estudiantes/${alumno.id}`, alumno)
   }
   
-  eliminarAlumno(id:number):void{
-    const estudiante = listaEstudiantes.find((estudiante:Estudiante)=>estudiante.id === id);
-    if (estudiante){
-       const index = listaEstudiantes.indexOf(estudiante)
-       listaEstudiantes.splice(index,1);
-    }
-  }
+  eliminarAlumno(id:number){
+    return this.http.get<Estudiante[]>(`http://localhost:3000/estudiantes/${id}`)
+}
+
 }

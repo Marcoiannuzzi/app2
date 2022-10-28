@@ -16,7 +16,9 @@ export class StudentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listaEstudantes = this.alumnoService.obtenerAlumnos();
+    this.alumnoService.obtenerAlumnos().subscribe({
+      next:((data)=>this.listaEstudantes = data)
+    });
   } 
 
   eliminarAlumno(id:number):void{
