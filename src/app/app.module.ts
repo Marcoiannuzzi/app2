@@ -10,9 +10,12 @@ import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { CursosModule } from './cursos/cursos.module';
 import { StudentModule } from './student/student.module';
+import { PaginaNoEncontradaComponent } from './shared/pagina-no-encontrada/pagina-no-encontrada.component';
 
 const routes: Routes = [ 
+  { path: '' , redirectTo:'inicio', pathMatch:'full'},
   { path: 'login', component: LoginComponent }, 
+  { path : '**', component:PaginaNoEncontradaComponent }
   ]
 
 

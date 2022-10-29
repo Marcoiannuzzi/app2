@@ -1,10 +1,11 @@
 <app-navbar></app-navbar>
+
 <div class="container d-flex flex-column justify-content-center align-items-center">
 
   <div class="d-flex flex-wrap justify-content-center align-items-center m-4">
       <img src="../../assets/school.png" class="imgPrincipal" alt="logo principal de aplicacion">
       <h1 class="titulo text-center p-3 m-3">Cursos</h1>   
-      <a class="btn btn-outline-primary m-3 text-white" routerLink="/cursos-form">Agregar Curso</a>
+      <a class="btn btn-outline-primary m-3 text-white" routerLink="/cursos/cursos-form">Agregar Curso</a>
   </div>
   
 </div>
@@ -21,7 +22,7 @@
       <p>Inicia el : {{curso.comienzo | date:'short'}}</p>
       <p>Finaliza el : {{curso.finalizacion | date:'short'}}</p>
     </mat-card-content>
-    <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon" routerLink="/editar-curso">
+    <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon" routerLink="/cursos/editar-curso">
       <mat-icon>edit</mat-icon>
     </button>
     <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" (click)="eliminarCurso(curso.comision)">

@@ -50,7 +50,7 @@ export class CursoFormComponent implements OnInit {
     }
     
     listaCursos.push(curso);
-    this.router.navigate(['/cursos']);
+    this.router.navigate(['/cursos/cursos-ver']);
 
   }
 

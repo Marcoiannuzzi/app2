@@ -8,17 +8,21 @@ import { CursoFormComponent } from './curso-form/curso-form.component';
 import { EditarCursoComponent } from './editar-curso/editar-curso.component';
 import { LoginGuardGuard } from '../login-guard.guard';
 
+
 const routes: Routes = [ 
-  { path: 'cursos', component: CursosComponent, canActivate:[LoginGuardGuard] },
-  { path: 'cursos-form', component:CursoFormComponent, canActivate:[LoginGuardGuard] },
-  { path:'editar-curso', component:EditarCursoComponent, canActivate:[LoginGuardGuard] }
-]
+  { path: 'cursos', canActivate:[LoginGuardGuard], children:[
+    { path: 'cursos-ver', component: CursosComponent},
+    { path: 'cursos-form', component:CursoFormComponent },
+    { path:'editar-curso', component:EditarCursoComponent }
+  ]}
+];
 
 @NgModule({
   declarations: [
     CursosComponent,
     CursoFormComponent,
     EditarCursoComponent,
+
   ],
   imports: [
     CommonModule,

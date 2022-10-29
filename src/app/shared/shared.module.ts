@@ -9,11 +9,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-encontrada.component';
 
 const routes: Routes = [ 
-  { path: '' , redirectTo:'inicio', pathMatch:'full'},
   { path: 'inicio', component:InicioComponent},
-  // { path : '**', component: }
+  
  ];
 
 
@@ -24,7 +24,8 @@ const routes: Routes = [
     BooleanoATextoPipe,
     AgregarApellidoPipe,
     EstiloTitulosDirective,
-    FooterComponent
+    FooterComponent,
+    PaginaNoEncontradaComponent
   ],
   imports: [
     CommonModule,
