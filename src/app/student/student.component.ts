@@ -24,9 +24,20 @@ export class StudentComponent implements OnInit {
     
   } 
 
+  agregarAlumno(){
+    this.router.navigate(['formulario'])
+    this.alumnoService.obtenerAlumnos().subscribe((data) => this.listaEstudiantes$.next(data))
+  }
+
   eliminarAlumno(id:number):void{
     this.alumnoService.eliminarAlumno(id).subscribe(()=> alert(`El alumno con el dni ${id} se ha borrado correctamente`));
+    this.alumnoService.obtenerAlumnos().subscribe((data) => this.listaEstudiantes$.next(data))
     this.router.navigate(['alumnos'])
+  }
+
+  editarAlumno(alumno:Estudiante){
+    this.router.navigate(['editar', alumno])
+    this.alumnoService.obtenerAlumnos().subscribe((data) => this.listaEstudiantes$.next(data))
   }
   
 

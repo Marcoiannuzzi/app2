@@ -5,21 +5,14 @@
       "nombre": "Joaquin",
       "apellido": "Gonzalez",
       "email": "joaquingonzales@gmail.com",
-      "curso": "Angular"
-    },
-    {
-      "id": 251649874,
-      "nombre": "Daniel",
-      "apellido": "Gimenez",
-      "email": "danig21@gmail.com",
-      "curso": "VueJs"
+      "curso": "React"
     },
     {
       "id": 52641985,
       "nombre": "Claudia",
       "apellido": "Olmedo",
       "email": "clau5487@hotmail.com",
-      "curso": "Angular"
+      "curso": "React"
     },
     {
       "id": 23654987,
@@ -47,7 +40,7 @@
       "nombre": "Daniela",
       "apellido": "Godoy",
       "email": "danigo@hotmai.com",
-      "curso": "Angular"
+      "curso": "VueJs"
     },
     {
       "id": 36251465,
@@ -55,6 +48,13 @@
       "apellido": "Oviedo",
       "email": "loviedo@hotmail.com",
       "curso": "React"
+    },
+    {
+      "id": 26541236,
+      "nombre": "Maria",
+      "apellido": "Martinez",
+      "email": "martinezm@gmail.com",
+      "curso": "Angular"
     }
   ],
   "comments": [

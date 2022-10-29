@@ -24,8 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // "email": "eve.holt@reqres.in",
-  // "password": "cityslicka"
+
 
   entrar():void{
       if(this.formLogin.value.email != "eve.holt@reqres.in" || this.formLogin.value.password != "cityslicka" ){

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlumnoService } from 'src/app/core/Servicios/alumno.service';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
@@ -41,7 +41,7 @@ export class EditarComponent implements OnInit {
     }
     this.alumnoService.editarAlumno(alumnoEditado).subscribe();
     this.router.navigate(['/alumnos'])
-
+    
    }
 }
 
