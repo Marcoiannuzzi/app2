@@ -1,33 +1,36 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Cursos } from '../../shared/Interfaces/Cursos';
-import { listaCursos } from '../../shared/Mocks/CursosMock';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class CursoService {
+export class CursoService implements OnInit{
 
-  constructor() { }
+  url:string = "http://localhost:3000/cursos"; 
 
-  obtenerCursos():Cursos[]{
-    return listaCursos;
+  constructor(private http:HttpClient) { }
+
+  ngOnInit(): void {
+    
   }
 
-  obtenerCursoPorId(comision:number):Cursos | undefined {
-    let cursoEncontrado = listaCursos.find((curso)=>curso.comision==comision);
-    return cursoEncontrado;
+
+  obtenerCursos():Observable<Cursos[]>{
+    return this.http.get<Cursos[]>(this.url)
   }
 
-  eliminarCurso(comision:number):void{
-    const curso = listaCursos.find((curso:Cursos)=>curso.comision === comision);
-    if (curso){
-       const index = listaCursos.indexOf(curso)
-       listaCursos.splice(index,1);
+  obtenerCursoPorId(comision:number):Observable<Cursos>{
+    return this.http.get<Cursos>(this.url+comision)
+  }
+
+  actualizarCurso(curso:Cursos):Observable<Cursos>{
+    return this.http.post<Cursos>(this.url+curso.comision, curso)
+  }
+
+  eliminarCurso(comision:number):Observable<any>{
+    return this.http.delete<Cursos>(this.url+comision)
     }
   }
-
-
-
-
-
-}

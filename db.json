@@ -57,13 +57,46 @@
       "curso": "React"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "cursos": [{
+    "comision":30221,
+    "nombre":"Angular",
+    "profesor":"Abner",
+    "comienzo": "2022-11-10",
+    "finalizacion": "2023/1/30",
+    "inscripcionAbierta":true
+},
+{
+    "comision":30222,
+    "nombre":"VueJS",
+    "profesor":"Diego",
+    "comienzo": "2023/2/10",
+    "finalizacion": "2023/4/30",
+    "inscripcionAbierta":true
+},
+{
+    "comision":30223,
+    "nombre":"React",
+    "profesor":"Maria",
+    "comienzo": "2022/9/10",
+    "finalizacion": "2022/11/30",
+    "inscripcionAbierta":false
+},
+{
+    "comision":30224,
+    "nombre":"Angular",
+    "profesor":"Abner",
+    "comienzo": "2022/8/10",
+    "finalizacion": "2022/10/30",
+    "inscripcionAbierta":false
+},
+{
+    "comision":30225,
+    "nombre":"React",
+    "profesor":"Maria",
+    "comienzo": "2023/0/10",
+    "finalizacion": "2023/2/30",
+    "inscripcionAbierta":true
+}],
   "profile": {
     "name": "typicode"
   }

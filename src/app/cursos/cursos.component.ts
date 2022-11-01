@@ -17,8 +17,9 @@ export class CursosComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.listaCursos = this.cursoService.obtenerCursos();
- 
+   this.cursoService.obtenerCursos().subscribe({
+    next:((data)=>this.listaCursos = data)
+   })
   }
 
   eliminarCurso(comision:number){
