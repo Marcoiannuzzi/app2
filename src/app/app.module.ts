@@ -11,11 +11,12 @@ import { SharedModule } from './shared/shared.module';
 import { CursosModule } from './cursos/cursos.module';
 import { StudentModule } from './student/student.module';
 import { PaginaNoEncontradaComponent } from './shared/pagina-no-encontrada/pagina-no-encontrada.component';
+import { InicioComponent } from './shared/inicio/inicio.component';
 
 const routes: Routes = [ 
   { path: '' , redirectTo:'inicio', pathMatch:'full'},
   { path: 'login', component: LoginComponent }, 
-  { path: 'inicio', loadChildren:()=>import('./shared/shared.module').then(m=> m.SharedModule)},
+  { path: 'inicio', component:InicioComponent},
   { path: 'alumnos', loadChildren:()=>import('./student/student.module').then(m=> m.StudentModule)},
   { path: 'cursos', loadChildren:()=>import('./cursos/cursos.module').then(m=> m.CursosModule)},
   { path : '**', component:PaginaNoEncontradaComponent }
