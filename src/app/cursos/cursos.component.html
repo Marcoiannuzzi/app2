@@ -22,10 +22,10 @@
       <p>Inicia el : {{curso.comienzo}}</p>
       <p>Finaliza el : {{curso.finalizacion}}</p>
     </mat-card-content>
-    <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon" routerLink="/cursos/editar-curso">
+    <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon" (click)="editar(curso)">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" (click)="eliminarCurso(curso.comision)">
+    <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" (click)="eliminar(curso.comision)">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-card>

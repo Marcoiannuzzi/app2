@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CursoService } from 'src/app/core/Servicios/curso.service';
 import { Cursos } from 'src/app/shared/Interfaces/Cursos';
-import { listaCursos } from 'src/app/shared/Mocks/CursosMock';
 
 @Component({
   selector: 'app-curso-form',
@@ -13,7 +13,7 @@ export class CursoFormComponent implements OnInit {
 
   cursoForm! : FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router) {
+  constructor(private fb:FormBuilder, private router:Router, private cursoService:CursoService) {
     this.cursoForm=this.fb.group({
       comision:['',[Validators.required]],
       nombre:['',[Validators.required]],
@@ -27,10 +27,11 @@ export class CursoFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  crearCurso(){
-    let curso:Cursos
+  crearCurso():void{
+    console.log("funciona");
+    let nuevoCurso:Cursos
     if(this.cursoForm.get('inscripcionAbierta')?.value == 'true'){
-        curso={
+      nuevoCurso={
         comision:this.cursoForm.get('comision')?.value,
         nombre:this.cursoForm.get('nombre')?.value,
         profesor:this.cursoForm.get('profesor')?.value,
@@ -39,7 +40,7 @@ export class CursoFormComponent implements OnInit {
         inscripcionAbierta:true,
       }
     }else{
-        curso={
+      nuevoCurso={
           comision:this.cursoForm.get('comision')?.value,
           nombre:this.cursoForm.get('nombre')?.value,
           profesor:this.cursoForm.get('profesor')?.value,
@@ -49,9 +50,8 @@ export class CursoFormComponent implements OnInit {
       }
     }
     
-    listaCursos.push(curso);
+    this.cursoService.agregarCurso(nuevoCurso).subscribe((data)=>console.log(data));
     this.router.navigate(['/cursos/cursos-ver']);
-
   }
 
 }

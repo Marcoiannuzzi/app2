@@ -15,7 +15,7 @@ export class AlumnoService {
     return this.http.get<Estudiante[]>('http://localhost:3000/estudiantes')
     .pipe(
       catchError(this.manejarError)
-    );;
+    );
   }
 
   agregarAlumno(alumno:Estudiante):Observable<Estudiante>{
@@ -23,7 +23,6 @@ export class AlumnoService {
     .pipe(
       catchError(this.manejarError)
     );
-
   }
 
   obtenerAlumnoPorId(id:number):Observable<Estudiante>{
@@ -45,15 +44,14 @@ export class AlumnoService {
     .pipe(
       catchError(this.manejarError)
     );
-}
-
-manejarError(err:HttpErrorResponse){
-  if (err.error instanceof ErrorEvent){
-    console.warn('Ha ocurrido un error del lado cliente', err.error.message)
-  } else {
-    console.warn('Ha ocurrido un error del lado servidor', err.error.message)
   }
-  return throwError(()=> Error('error en conexion http'));
-}
 
+  manejarError(err:HttpErrorResponse){
+    if (err.error instanceof ErrorEvent){
+      console.warn('Ha ocurrido un error del lado cliente', err.error.message)
+    } else {
+      console.warn('Ha ocurrido un error del lado servidor', err.error.message)
+    }
+    return throwError(()=> Error('error en conexion http'));
+  }
 }

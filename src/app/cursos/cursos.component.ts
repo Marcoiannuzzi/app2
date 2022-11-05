@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cursos } from '../shared/Interfaces/Cursos';
 import { CursoService } from '../core/Servicios/curso.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cursos',
@@ -12,7 +13,7 @@ export class CursosComponent implements OnInit {
   
   listaCursos: Cursos[] = [];
 
-  constructor(private cursoService:CursoService) {
+  constructor(private cursoService:CursoService, private router: Router) {
 
    }
 
@@ -22,8 +23,13 @@ export class CursosComponent implements OnInit {
    })
   }
 
-  eliminarCurso(comision:number){
-    this.cursoService.eliminarCurso(comision);    
+  eliminar(comision:number):void{
+    this.cursoService.eliminarCurso(comision).subscribe(()=>alert("Eliminado Correctamente!"))
+  }
+
+  editar(curso:Cursos){
+    this.router.navigate(['/cursos/editar-curso', curso]);
+
   }
 
 }
