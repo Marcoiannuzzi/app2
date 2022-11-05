@@ -11,7 +11,7 @@ import { AlumnoService } from '../core/Servicios/alumno.service';
 })
 export class StudentComponent implements OnInit {
   
-
+  token?:any;
   listaEstudiantes$!:BehaviorSubject<Estudiante[]>
   
   constructor(private alumnoService:AlumnoService, private router:Router) { 
@@ -21,7 +21,7 @@ export class StudentComponent implements OnInit {
     this.alumnoService.obtenerAlumnos().subscribe({
       next:((data)=>this.listaEstudiantes$=new BehaviorSubject<Estudiante[]>(data))
     });
-    
+    this.token = sessionStorage.getItem('token');
   } 
 
   agregarAlumno(){

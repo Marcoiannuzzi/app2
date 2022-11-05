@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CursosComponent implements OnInit {
 
-  
+  token?:any;
   listaCursos: Cursos[] = [];
 
   constructor(private cursoService:CursoService, private router: Router) {
@@ -21,6 +21,7 @@ export class CursosComponent implements OnInit {
    this.cursoService.obtenerCursos().subscribe({
     next:((data)=>this.listaCursos = data)
    })
+   this.token = sessionStorage.getItem('token')
   }
 
   eliminar(id:number):void{

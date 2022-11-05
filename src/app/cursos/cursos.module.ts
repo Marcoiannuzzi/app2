@@ -10,10 +10,10 @@ import { LoginGuardGuard } from '../login-guard.guard';
 
 
 const routes: Routes = [ 
-  { path: 'cursos', canActivate:[LoginGuardGuard], children:[
+  { path: 'cursos',  children:[
     { path: 'cursos-ver', component: CursosComponent},
-    { path: 'cursos-form', component:CursoFormComponent },
-    { path:'editar-curso', component:EditarCursoComponent }
+    { path: 'cursos-form', canActivate:[LoginGuardGuard], component:CursoFormComponent },
+    { path:'editar-curso', canActivate:[LoginGuardGuard], component:EditarCursoComponent }
   ]}
 ];
 

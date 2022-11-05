@@ -78,9 +78,9 @@
       "id": 30223,
       "nombre": "React",
       "profesor": "Maria",
-      "comienzo": "2022/9/10",
-      "finalizacion": "2022/11/30",
-      "inscripcionAbierta": false
+      "comienzo": "2022-11-12",
+      "finalizacion": "2022-12-17",
+      "inscripcionAbierta": "true"
     },
     {
       "id": 25145,

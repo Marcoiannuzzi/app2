@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.obtenerUsusarios().subscribe({
-      next:(data:User[])=>{this.users = data
-      console.log(this.users)}
+      next:(data:User[])=>this.users = data
     })
   }
 
@@ -37,7 +36,7 @@ export class LoginComponent implements OnInit {
         alert('Usuario o contraseña incorrectos')
       }else{
       this.token=this.logginUser?.rol
-      sessionStorage.setItem('token', JSON.stringify(this.token));
+      sessionStorage.setItem('token', this.token);
       this.route.navigate(['/inicio']);       
       this.formLogin.reset()
       }

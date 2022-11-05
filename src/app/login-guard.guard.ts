@@ -17,14 +17,15 @@ export class LoginGuardGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     var token = sessionStorage.getItem('token');
+    console.log(token)
 
-    if (token){
+    if (token === "admin"){
       return true;
 
     }
     else{
       alert("No tiene acceso a esta url")
-      this.router.navigate(['login']);
+      this.router.navigate(['/login']);
       return false
       
     }

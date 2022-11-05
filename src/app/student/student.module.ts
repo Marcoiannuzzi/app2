@@ -9,8 +9,8 @@ import { EditarComponent } from './editar/editar.component';
 import { LoginGuardGuard } from '../login-guard.guard';
 
 const routes: Routes = [ 
-  { path: 'alumnos', component: StudentComponent, canActivate:[LoginGuardGuard] },
-  { path: 'formulario', component: FormularioComponent, canActivate:[LoginGuardGuard]  },
+  { path: 'alumnos', component: StudentComponent },
+  { path: 'formulario', component: FormularioComponent},
   { path: 'editar', component:EditarComponent, canActivate:[LoginGuardGuard] }
 ]
 
