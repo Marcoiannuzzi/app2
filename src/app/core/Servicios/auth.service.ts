@@ -8,6 +8,9 @@ import { User } from 'src/app/shared/Interfaces/user';
 })
 export class AuthService {
 
+  url:string="http://localhost:3000/usuarios/";
+
+
   constructor(private http:HttpClient) { }
 
 login(email:string, password:string):Observable<any>{
@@ -20,8 +23,8 @@ login(email:string, password:string):Observable<any>{
     return this.http.post('https://reqres.in/api/login', body);
   }
 
-  obtenerUsuarioPorMail(mail:string):Observable<User>{
-    return this.http.get<User>(`http://localhost:3000/usuarios/${mail}`)
+  obtenerUsusarios():Observable<User[]>{
+    return this.http.get<User[]>(this.url);
   }
 
   salir(){

@@ -13,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   formLogin:FormGroup;
   token!:any;
-  user!:User;
+  users!:User[];
+  logginUser?:User;
 
 
   constructor(private authService:AuthService, private route:Router, private fb:FormBuilder) {
@@ -24,30 +25,21 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.authService.obtenerUsusarios().subscribe({
+      next:(data:User[])=>{this.users = data
+      console.log(this.users)}
+    })
   }
 
-
-
   entrar():void{
-      if(this.formLogin.value.email != "eve.holt@reqres.in" || this.formLogin.value.password != "cityslicka" ){
+      this.logginUser = this.users.find((user)=>user.email == this.formLogin.value.email)
+      if(this.formLogin.value.email != this.logginUser?.email || this.formLogin.value.password != this.logginUser?.password ){
         alert('Usuario o contraseña incorrectos')
       }else{
-      this.authService.login(this.formLogin.value.email, this.formLogin.value.password).subscribe((data)=>{
-      this.token=data.token;
+      this.token=this.logginUser?.rol
       sessionStorage.setItem('token', JSON.stringify(this.token));
       this.route.navigate(['/inicio']);       
       this.formLogin.reset()
-      })
       }
+    }
   }
-
-  // entrar(){
-  //   this.authService.obtenerUsuarioPorMail(this.formLogin.value.email)
-  //   .subscribe((data:User)=>{
-  //     this.user=data
-  //     console.log(this.user)
-  //   })
-  // }
-
-
-}
