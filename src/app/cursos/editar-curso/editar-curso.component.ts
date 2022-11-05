@@ -17,20 +17,22 @@ export class EditarCursoComponent implements OnInit {
 
   ngOnInit(): void {
     this.aRoute.paramMap.subscribe((data)=>{
+      console.log(data)
       this.cursoForm = this.fb.group({
-        comision: [parseInt( data.get('comision') || "0"), [Validators.required]],
+        id: [parseInt( data.get('id') || "0"), [Validators.required]],
         nombre:[data.get('nombre'), [Validators.required]],
         profesor: [data.get('profesor'), [Validators.required]],
-        fechaInicio: [data.get('fechaInicio'), [Validators.required]],
-        fechaFin: [data.get('fechaFin'), [Validators.required]],
+        fechaInicio: [new Date(data.get('fechaInicio')||"0"), [Validators.required]],
+        fechaFin: [new Date(data.get('fechaFin')||"0"), [Validators.required]],
         inscripcionAbierta: [data.get('inscripcionAbierta'), [Validators.required]],
      });
+     
     })
   }
 
   editarCurso(){
     let cursoEditado: Cursos={
-      comision:this.cursoForm.value.comision,
+      id:this.cursoForm.value.id,
       nombre:this.cursoForm.value.nombre,
       profesor:this.cursoForm.value.profesor,
       comienzo:this.cursoForm.value.fechaInicio,

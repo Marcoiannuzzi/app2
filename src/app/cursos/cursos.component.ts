@@ -23,8 +23,13 @@ export class CursosComponent implements OnInit {
    })
   }
 
-  eliminar(comision:number):void{
-    this.cursoService.eliminarCurso(comision).subscribe(()=>alert("Eliminado Correctamente!"))
+  eliminar(id:number):void{
+    this.cursoService.eliminarCurso(id).subscribe(()=>{
+      alert("Eliminado Correctamente!")
+      this.cursoService.obtenerCursos().subscribe({
+        next:((data)=>this.listaCursos = data)
+       })
+    })
   }
 
   editar(curso:Cursos){

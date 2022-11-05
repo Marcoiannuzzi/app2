@@ -6,7 +6,7 @@
       <form class="col-5" [formGroup]="cursoForm" (submit)="crearCurso()">
           <div class="mb-3">
             <label for="comision" class="form-label">Número de comisión: </label>
-            <input type="text" class="form-control" id="comision" placeholder="Comisión numero" formControlName="comision" >
+            <input type="number" class="form-control" id="comision" placeholder="Comisión numero" formControlName="id" >
             <p class="alerta" *ngIf="cursoForm.touched && cursoForm.get('comision')?.errors?.['minlength']" >Este campo es obligatorio y debe tenes mas de 3 caracteres</p>
           </div>
           <div class="mb-3">

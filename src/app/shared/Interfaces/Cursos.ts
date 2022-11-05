@@ -1,5 +1,5 @@
 export interface Cursos {
-    comision:number;
+    id:number;
     nombre: string;
     profesor: string;
     comienzo: Date;

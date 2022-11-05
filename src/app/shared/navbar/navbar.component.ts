@@ -15,7 +15,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.token =  sessionStorage.getItem('token');
-    console.log(this.token)
   }
 
   salir(){

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../core/Servicios/auth.service';
+import { User } from '../shared/Interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   formLogin:FormGroup;
   token!:any;
+  user!:User;
 
 
   constructor(private authService:AuthService, private route:Router, private fb:FormBuilder) {
@@ -36,9 +38,16 @@ export class LoginComponent implements OnInit {
       this.route.navigate(['/inicio']);       
       this.formLogin.reset()
       })
-  }
+      }
   }
 
+  // entrar(){
+  //   this.authService.obtenerUsuarioPorMail(this.formLogin.value.email)
+  //   .subscribe((data:User)=>{
+  //     this.user=data
+  //     console.log(this.user)
+  //   })
+  // }
 
 
 }

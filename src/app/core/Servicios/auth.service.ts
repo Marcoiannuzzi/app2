@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/Interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ login(email:string, password:string):Observable<any>{
     }
 
     return this.http.post('https://reqres.in/api/login', body);
+  }
+
+  obtenerUsuarioPorMail(mail:string):Observable<User>{
+    return this.http.get<User>(`http://localhost:3000/usuarios/${mail}`)
   }
 
   salir(){

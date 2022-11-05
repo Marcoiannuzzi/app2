@@ -15,7 +15,7 @@ export class CursoFormComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private router:Router, private cursoService:CursoService) {
     this.cursoForm=this.fb.group({
-      comision:['',[Validators.required]],
+      id:['',[Validators.required]],
       nombre:['',[Validators.required]],
       profesor:['',[Validators.required]],
       fechaInicio:['',[Validators.required]],
@@ -32,7 +32,7 @@ export class CursoFormComponent implements OnInit {
     let nuevoCurso:Cursos
     if(this.cursoForm.get('inscripcionAbierta')?.value == 'true'){
       nuevoCurso={
-        comision:this.cursoForm.get('comision')?.value,
+        id:this.cursoForm.get('id')?.value,
         nombre:this.cursoForm.get('nombre')?.value,
         profesor:this.cursoForm.get('profesor')?.value,
         comienzo:this.cursoForm.get('fechaInicio')?.value,
@@ -41,7 +41,7 @@ export class CursoFormComponent implements OnInit {
       }
     }else{
       nuevoCurso={
-          comision:this.cursoForm.get('comision')?.value,
+          id:this.cursoForm.get('id')?.value,
           nombre:this.cursoForm.get('nombre')?.value,
           profesor:this.cursoForm.get('profesor')?.value,
           comienzo:this.cursoForm.get('fechaInicio')?.value,
