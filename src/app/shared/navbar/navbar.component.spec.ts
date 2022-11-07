@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/Servicios/auth.service';
@@ -14,7 +14,7 @@ describe('NavbarComponent', () => {
     await TestBed.configureTestingModule({
       imports:[SharedModule, HttpClientModule],
       declarations: [ NavbarComponent ],
-      providers: [HttpClient, AuthService]
+      providers: [AuthService, Router]
     })
     .compileComponents();
   });
