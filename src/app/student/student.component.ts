@@ -30,8 +30,10 @@ export class StudentComponent implements OnInit {
   }
 
   eliminarAlumno(id:number):void{
-    this.alumnoService.eliminarAlumno(id).subscribe(()=> alert(`El alumno con el dni ${id} se ha borrado correctamente`));
-    this.alumnoService.obtenerAlumnos().subscribe((data) => this.listaEstudiantes$.next(data))
+    this.alumnoService.eliminarAlumno(id).subscribe(()=>{
+      alert(`El alumno con el dni ${id} se ha borrado correctamente`)
+      this.alumnoService.obtenerAlumnos().subscribe((data) => this.listaEstudiantes$.next(data))
+    } );
     this.router.navigate(['/alumnos'])
   }
 
