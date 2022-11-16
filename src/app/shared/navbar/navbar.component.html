@@ -17,6 +17,9 @@
             <li class="nav-item">
               <a class="links nav-link active link" routerLink="/cursos/cursos-ver">Cursos</a>
             </li>
+            <li class="nav-item">
+              <a class="links nav-link active link" routerLink="/inscripciones/lista">Inscripciones</a>
+            </li>
           </ul>
             <a class=" btn btn-outline-danger text-white" *ngIf="token!=null" (click)="salir()">Logout</a>
             <a class=" btn btn-outline-primary text-white" *ngIf="token==null" routerLink="/login">Login</a>

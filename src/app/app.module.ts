@@ -12,9 +12,11 @@ import { CursosModule } from './cursos/cursos.module';
 import { StudentModule } from './student/student.module';
 import { PaginaNoEncontradaComponent } from './shared/pagina-no-encontrada/pagina-no-encontrada.component';
 import { InicioComponent } from './shared/inicio/inicio.component';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
+import { InscripcionesModule } from './inscripciones/inscripciones.module';
+
+//import { StoreModule } from '@ngrx/store';
+//import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+//import { environment } from '../environments/environment';
 
 const routes: Routes = [ 
   { path: '' , redirectTo:'inicio', pathMatch:'full'},
@@ -22,6 +24,7 @@ const routes: Routes = [
   { path: 'inicio', component:InicioComponent},
   { path: 'alumnos', loadChildren:()=>import('./student/student.module').then(m=> m.StudentModule)},
   { path: 'cursos', loadChildren:()=>import('./cursos/cursos.module').then(m=> m.CursosModule)},
+  { path: 'inscripciones', loadChildren: ()=>import ('./inscripciones/inscripciones.module').then(m => m.InscripcionesModule)},
   { path : '**', component:PaginaNoEncontradaComponent }
   ]
 
@@ -40,8 +43,9 @@ const routes: Routes = [
     SharedModule,
     CursosModule,
     StudentModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    InscripcionesModule
+    //StoreModule.forRoot({}, {}),
+   // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

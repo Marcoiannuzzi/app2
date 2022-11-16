@@ -104,5 +104,12 @@
       "password": "test2",
       "rol": "alumno"
     }
+  ],
+  "inscripciones": [
+    {
+      "id": 1,
+      "estudiante": {},
+      "curso": {}
+    }
   ]
 }

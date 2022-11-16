@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CursoFormComponent } from './curso-form/curso-form.component';
 import { EditarCursoComponent } from './editar-curso/editar-curso.component';
 import { LoginGuardGuard } from '../login-guard.guard';
-import { AlumnoGuardGuard } from '../alumno-guard.guard';
+
 
 
 const routes: Routes = [ 
