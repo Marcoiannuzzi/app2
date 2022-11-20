@@ -11,7 +11,7 @@ import { AlumnoGuardGuard } from '../alumno-guard.guard';
 
 const routes: Routes = [ 
   { path: 'alumnos', component: StudentComponent },
-  { path: 'formulario', component: FormularioComponent, canActivate:[AlumnoGuardGuard]},
+  { path: 'formulario', component: FormularioComponent, canActivate:[LoginGuardGuard]},
   { path: 'editar', component:EditarComponent, canActivate:[LoginGuardGuard] }
 ]
 

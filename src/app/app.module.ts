@@ -43,7 +43,7 @@ const routes: Routes = [
     SharedModule,
     CursosModule,
     StudentModule,
-    InscripcionesModule
+    InscripcionesModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],

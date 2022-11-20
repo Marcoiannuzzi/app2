@@ -61,10 +61,10 @@
     {
       "id": 30221,
       "nombre": "Angular",
-      "profesor": "Abner",
-      "comienzo": "2022-11-10",
-      "finalizacion": "2023/1/30",
-      "inscripcionAbierta": true
+      "profesor": "Abner ",
+      "comienzo": "2022-12-03",
+      "finalizacion": "2023-03-11",
+      "inscripcionAbierta": "true"
     },
     {
       "id": 30222,

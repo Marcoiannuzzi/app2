@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   formLogin:FormGroup;
   token!:any;
   users!:User[];
-  logginUser?:User;
+  loginUser?:User;
 
 
   constructor(private authService:AuthService, private route:Router, private fb:FormBuilder) {
@@ -31,11 +31,11 @@ export class LoginComponent implements OnInit {
   }
 
   entrar():void{
-      this.logginUser = this.users.find((user)=>user.email == this.formLogin.value.email)
-      if(this.formLogin.value.email != this.logginUser?.email || this.formLogin.value.password != this.logginUser?.password ){
+      this.loginUser = this.users.find((user)=>user.email == this.formLogin.value.email)
+      if(this.formLogin.value.email != this.loginUser?.email || this.formLogin.value.password != this.loginUser?.password ){
         alert('Usuario o contraseña incorrectos')
       }else{
-      this.token=this.logginUser?.rol
+      this.token=this.loginUser?.rol
       sessionStorage.setItem('token', this.token);
       this.route.navigate(['/inicio']);       
       this.formLogin.reset()

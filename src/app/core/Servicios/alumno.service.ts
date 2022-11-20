@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Estudiante } from '../../shared/Interfaces/Estudiantes';
 
 
@@ -9,38 +10,40 @@ import { Estudiante } from '../../shared/Interfaces/Estudiantes';
 })
 export class AlumnoService {
 
+  urlestudiantes = `${environment.api}estudiantes/`
+
   constructor(private http:HttpClient) { }
 
   obtenerAlumnos():Observable<Estudiante[]>{
-    return this.http.get<Estudiante[]>('http://localhost:3000/estudiantes')
+    return this.http.get<Estudiante[]>(this.urlestudiantes)
     .pipe(
       catchError(this.manejarError)
     );
   }
 
   agregarAlumno(alumno:Estudiante):Observable<Estudiante>{
-    return this.http.post<Estudiante>('http://localhost:3000/estudiantes/', alumno)
+    return this.http.post<Estudiante>(this.urlestudiantes, alumno)
     .pipe(
       catchError(this.manejarError)
     );
   }
 
   obtenerAlumnoPorId(id:number):Observable<Estudiante>{
-    return this.http.get<Estudiante>(`http://localhost:3000/estudiantes/${id}`)
+    return this.http.get<Estudiante>(this.urlestudiantes+id)
     .pipe(
       catchError(this.manejarError)
     );
   }
 
   editarAlumno(alumno:Estudiante):Observable<any>{
-    return this.http.put(`http://localhost:3000/estudiantes/${alumno.id}`, alumno)
+    return this.http.put(this.urlestudiantes+alumno.id, alumno)
     .pipe(
       catchError(this.manejarError)
     );
   }
   
   eliminarAlumno(id:number):Observable<any>{
-    return this.http.delete(`http://localhost:3000/estudiantes/${id}`)
+    return this.http.delete(this.urlestudiantes+id)
     .pipe(
       catchError(this.manejarError)
     );

@@ -1,48 +1,49 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Cursos } from '../../shared/Interfaces/Cursos';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class CursoService{
+export class CursoService{ 
 
-  url:string = "http://localhost:3000/cursos/"; 
+  urlCursos = `${environment.api}cursos/`;
 
   constructor(private http:HttpClient) { }
 
   obtenerCursos():Observable<Cursos[]>{
-    return this.http.get<Cursos[]>(this.url)
+    return this.http.get<Cursos[]>(this.urlCursos)
     .pipe(
       catchError(this.manejarError)
     );
   }
 
   agregarCurso(curso:Cursos):Observable<Cursos>{
-    return this.http.post<Cursos>(this.url, curso)
+    return this.http.post<Cursos>(this.urlCursos, curso)
     .pipe(
       catchError(this.manejarError)
     );
   }
 
   obtenerCursoPorId(id:number):Observable<Cursos>{
-    return this.http.get<Cursos>(this.url+id)
+    return this.http.get<Cursos>(this.urlCursos+id)
     .pipe(
       catchError(this.manejarError)
     );
   }
 
   actualizarCurso(curso:Cursos):Observable<any>{
-    return this.http.put(this.url+curso.id, curso)
+    return this.http.put(this.urlCursos+curso.id, curso)
     .pipe(
       catchError(this.manejarError)
     );
   }
 
   eliminarCurso(id:number):Observable<any>{
-    return this.http.delete(this.url+id)
+    return this.http.delete(this.urlCursos+id)
     .pipe(
       catchError(this.manejarError)
     );
