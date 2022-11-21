@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { inscripcion } from 'src/app/shared/Interfaces/Inscripcion';
+import { Inscripcion } from 'src/app/shared/Interfaces/Inscripcion';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,20 +13,20 @@ export class InscripcionesService {
 
   constructor(private http:HttpClient) { }
 
-  obtenerInscripciones():Observable<inscripcion[]>{
-    return this.http.get<inscripcion[]>(this.urlInscripciones);
+  obtenerInscripciones():Observable<Inscripcion[]>{
+    return this.http.get<Inscripcion[]>(this.urlInscripciones);
   }
 
-  agregarInscripcion(inscripcion:inscripcion):Observable<inscripcion>{
-    return this.http.post<inscripcion>(this.urlInscripciones, inscripcion);
+  agregarInscripcion(inscripcion:Inscripcion):Observable<Inscripcion>{
+    return this.http.post<Inscripcion>(this.urlInscripciones, inscripcion);
   }
 
-  editarInscripcion(inscripcion:inscripcion):Observable<inscripcion>{
-    return this.http.put<inscripcion>(this.urlInscripciones+inscripcion.id, inscripcion);
+  editarInscripcion(inscripcion:Inscripcion):Observable<Inscripcion>{
+    return this.http.put<Inscripcion>(this.urlInscripciones+inscripcion.id, inscripcion);
   }
 
-  eliminarInscripcion(id:number):Observable<inscripcion>{
-    return this.http.delete<inscripcion>(this.urlInscripciones+id);
+  eliminarInscripcion(id:number):Observable<Inscripcion>{
+    return this.http.delete<Inscripcion>(this.urlInscripciones+id);
   }
 
 }

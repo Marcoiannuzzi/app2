@@ -110,6 +110,7 @@
   "defaultProject": "app2",
   "cli": {
     "schematicCollections": [
+      "@ngrx/schematics",
       "@ngrx/schematics"
     ]
   }

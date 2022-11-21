@@ -1,8 +1,8 @@
 import { Cursos } from "./Cursos";
 import { Estudiante } from "./Estudiantes";
 
-export interface inscripcion {
+export interface Inscripcion {
     id:number,
     curso:Cursos,
-    Estudiante:Estudiante
+    estudiante:Estudiante
 }

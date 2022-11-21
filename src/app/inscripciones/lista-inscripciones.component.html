@@ -1,2 +1,10 @@
 <app-navbar></app-navbar>
-<p>lista-inscripciones works!</p>
+<div *ngIf="loading$ | async" class="container inscripcionesConteiner d-flex justify-content-center align-items-center">
+    <h2>Cargando...</h2>
+</div>
+
+<div class="container inscripcionesConteiner d-flex flex-column justify-content-center align-items-center">
+    <ul *ngFor="let inscripcion of listaInscripciones | async">
+        <li>El estudiante {{inscripcion.estudiante}} esta inscripto en el curso de {{inscripcion.curso}}</li>
+    </ul>
+</div>

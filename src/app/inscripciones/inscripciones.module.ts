@@ -6,6 +6,7 @@ import { ListaInscripcionesComponent } from './lista-inscripciones.component';
 import { SharedModule } from '../shared/shared.module';
 
 
+
 @NgModule({
   declarations: [
     ListaInscripcionesComponent
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     InscripcionesRoutingModule,
-    SharedModule
+    SharedModule,
+ 
   ]
 })
 export class InscripcionesModule { }

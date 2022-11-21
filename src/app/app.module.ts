@@ -13,10 +13,12 @@ import { StudentModule } from './student/student.module';
 import { PaginaNoEncontradaComponent } from './shared/pagina-no-encontrada/pagina-no-encontrada.component';
 import { InicioComponent } from './shared/inicio/inicio.component';
 import { InscripcionesModule } from './inscripciones/inscripciones.module';
-
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { ROOT_REDUCER } from './app.state';
+import { EffectsModule } from '@ngrx/effects';
+import { InscripcionesEffects } from './inscripciones/state/inscripciones.effects';
 
 const routes: Routes = [ 
   { path: '' , redirectTo:'inicio', pathMatch:'full'},
@@ -44,8 +46,10 @@ const routes: Routes = [
     CursosModule,
     StudentModule,
     InscripcionesModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreModule.forRoot(ROOT_REDUCER),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forFeature([InscripcionesEffects]),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
