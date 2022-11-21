@@ -28,22 +28,15 @@ export class CursoService{
     );
   }
 
-  obtenerCursoPorId(id:number):Observable<Cursos>{
-    return this.http.get<Cursos>(this.urlCursos+id)
+  actualizarCurso(curso:Cursos):Observable<Cursos>{
+    return this.http.put<Cursos>(this.urlCursos+curso.id, curso)
     .pipe(
       catchError(this.manejarError)
     );
   }
 
-  actualizarCurso(curso:Cursos):Observable<any>{
-    return this.http.put(this.urlCursos+curso.id, curso)
-    .pipe(
-      catchError(this.manejarError)
-    );
-  }
-
-  eliminarCurso(id:number):Observable<any>{
-    return this.http.delete(this.urlCursos+id)
+  eliminarCurso(curso:Cursos):Observable<Cursos>{
+    return this.http.delete<Cursos>(this.urlCursos+curso.id)
     .pipe(
       catchError(this.manejarError)
     );

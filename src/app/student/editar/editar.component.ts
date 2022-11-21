@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
 import { AlumnoService } from 'src/app/core/Servicios/alumno.service';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
+import { editarEstudiante } from '../state/estudiante.actions';
 
 
 
@@ -15,7 +18,7 @@ export class EditarComponent implements OnInit {
 
   formAlumno!:FormGroup;
 
-  constructor( private fb:FormBuilder, private aRoute:ActivatedRoute, private alumnoService :AlumnoService, private router:Router) {
+  constructor( private fb:FormBuilder, private aRoute:ActivatedRoute, private alumnoService :AlumnoService, private router:Router, private store:Store<AppState>) {
 
   }
 
@@ -32,14 +35,14 @@ export class EditarComponent implements OnInit {
    } 
 
    editarAlumno(){
-    let alumnoEditado : Estudiante ={
+    let estudiante : Estudiante ={
       id:this.formAlumno.value.dni,
       nombre:this.formAlumno.value.nombre,
       apellido:this.formAlumno.value.apellido,
       email:this.formAlumno.value.email,
       curso:this.formAlumno.value.curso
     }
-    this.alumnoService.editarAlumno(alumnoEditado).subscribe();
+    this.store.dispatch(editarEstudiante({estudiante}))
     this.router.navigate(['/alumnos'])
     
    }

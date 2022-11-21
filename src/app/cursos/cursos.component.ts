@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Cursos } from '../shared/Interfaces/Cursos';
 import { CursoService } from '../core/Servicios/curso.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
+import { selecCargandoCursos } from './state/cursos.selector';
+import { borrarCurso } from './state/cursos.action';
 
 @Component({
   selector: 'app-cursos',
@@ -11,26 +16,19 @@ import { Router } from '@angular/router';
 export class CursosComponent implements OnInit {
 
   token?:any;
-  listaCursos: Cursos[] = [];
+  listaCursos$:Observable<Cursos[]> = new Observable<Cursos[]>()
 
-  constructor(private cursoService:CursoService, private router: Router) {
+  constructor(private cursoService:CursoService, private router: Router, private store:Store<AppState>) {
 
    }
 
   ngOnInit(): void {
-   this.cursoService.obtenerCursos().subscribe({
-    next:((data)=>this.listaCursos = data)
-   })
-   this.token = sessionStorage.getItem('token')
+    this.listaCursos$ = this.store.select(selecCargandoCursos)
+    this.token = sessionStorage.getItem('token')
   }
 
-  eliminar(id:number):void{
-    this.cursoService.eliminarCurso(id).subscribe(()=>{
-      alert("Eliminado Correctamente!")
-      this.cursoService.obtenerCursos().subscribe({
-        next:((data)=>this.listaCursos = data)
-       })
-    })
+  eliminar(curso:Cursos):void{
+    this.store.dispatch(borrarCurso({curso}))
   }
 
   editar(curso:Cursos){

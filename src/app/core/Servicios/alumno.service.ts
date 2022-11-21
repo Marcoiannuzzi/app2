@@ -42,8 +42,8 @@ export class AlumnoService {
     );
   }
   
-  eliminarAlumno(id:number):Observable<any>{
-    return this.http.delete(this.urlestudiantes+id)
+  eliminarAlumno(alumno:Estudiante):Observable<Estudiante>{
+    return this.http.delete<Estudiante>(this.urlestudiantes+alumno.id)
     .pipe(
       catchError(this.manejarError)
     );

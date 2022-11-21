@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
 import { CursoService } from 'src/app/core/Servicios/curso.service';
 import { Cursos } from 'src/app/shared/Interfaces/Cursos';
+import { editarCurso } from '../state/cursos.action';
 
 @Component({
   selector: 'app-editar-curso',
@@ -13,7 +16,7 @@ export class EditarCursoComponent implements OnInit {
 
   cursoForm!:FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router, private aRoute: ActivatedRoute, private cursoService: CursoService) { }
+  constructor(private fb:FormBuilder, private router:Router, private aRoute: ActivatedRoute, private cursoService: CursoService, private store:Store<AppState>) { }
 
   ngOnInit(): void {
     this.aRoute.paramMap.subscribe((data)=>{
@@ -31,7 +34,7 @@ export class EditarCursoComponent implements OnInit {
   }
 
   editarCurso(){
-    let cursoEditado: Cursos={
+    let curso: Cursos={
       id:this.cursoForm.value.id,
       nombre:this.cursoForm.value.nombre,
       profesor:this.cursoForm.value.profesor,
@@ -39,7 +42,7 @@ export class EditarCursoComponent implements OnInit {
       finalizacion:this.cursoForm.value.fechaFin,
       inscripcionAbierta:this.cursoForm.value.inscripcionAbierta
     }
-    this.cursoService.actualizarCurso(cursoEditado).subscribe();
+    this.store.dispatch(editarCurso({curso}))
     this.router.navigate(['/cursos/cursos-ver']);
   }
 }

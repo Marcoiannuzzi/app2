@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
 import { CursoService } from 'src/app/core/Servicios/curso.service';
 import { Cursos } from 'src/app/shared/Interfaces/Cursos';
+import { agregarCurso } from '../state/cursos.action';
 
 @Component({
   selector: 'app-curso-form',
@@ -13,7 +16,7 @@ export class CursoFormComponent implements OnInit {
 
   cursoForm! : FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router, private cursoService:CursoService) {
+  constructor(private fb:FormBuilder, private router:Router, private cursoService:CursoService, private store:Store<AppState>) {
     this.cursoForm=this.fb.group({
       id:['',[Validators.required]],
       nombre:['',[Validators.required]],
@@ -29,9 +32,9 @@ export class CursoFormComponent implements OnInit {
 
   crearCurso():void{
     console.log("funciona");
-    let nuevoCurso:Cursos
+    let curso:Cursos
     if(this.cursoForm.get('inscripcionAbierta')?.value == 'true'){
-      nuevoCurso={
+      curso={
         id:this.cursoForm.get('id')?.value,
         nombre:this.cursoForm.get('nombre')?.value,
         profesor:this.cursoForm.get('profesor')?.value,
@@ -40,7 +43,7 @@ export class CursoFormComponent implements OnInit {
         inscripcionAbierta:true,
       }
     }else{
-      nuevoCurso={
+      curso={
           id:this.cursoForm.get('id')?.value,
           nombre:this.cursoForm.get('nombre')?.value,
           profesor:this.cursoForm.get('profesor')?.value,
@@ -49,8 +52,7 @@ export class CursoFormComponent implements OnInit {
           inscripcionAbierta:false,
       }
     }
-    
-    this.cursoService.agregarCurso(nuevoCurso).subscribe((data)=>console.log(data));
+    this.store.dispatch(agregarCurso({curso}))
     this.router.navigate(['/cursos/cursos-ver']);
   }
 

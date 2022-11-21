@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { InscripcionesRoutingModule } from './inscripciones-routing.module';
 import { ListaInscripcionesComponent } from './lista-inscripciones.component';
 import { SharedModule } from '../shared/shared.module';
+import { EffectsModule } from '@ngrx/effects';
+import { InscripcionesEffects } from './state/inscripciones.effects';
+import { MaterialModule } from '../material.module';
 
 
 
@@ -15,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     InscripcionesRoutingModule,
     SharedModule,
- 
+    MaterialModule,
+    EffectsModule.forFeature([InscripcionesEffects]),
   ]
 })
 export class InscripcionesModule { }

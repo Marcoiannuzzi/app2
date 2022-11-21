@@ -7,7 +7,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormularioComponent } from './formulario/formulario.component';
 import { EditarComponent } from './editar/editar.component';
 import { LoginGuardGuard } from '../login-guard.guard';
-import { AlumnoGuardGuard } from '../alumno-guard.guard';
+
+import { EffectsModule } from '@ngrx/effects';
+import { EstudiantesEffects } from './state/estudiante.effects';
 
 const routes: Routes = [ 
   { path: 'alumnos', component: StudentComponent },
@@ -25,7 +27,8 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     MaterialModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    EffectsModule.forFeature([EstudiantesEffects])
   ],
   exports:[
     RouterModule

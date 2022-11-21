@@ -7,6 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CursoFormComponent } from './curso-form/curso-form.component';
 import { EditarCursoComponent } from './editar-curso/editar-curso.component';
 import { LoginGuardGuard } from '../login-guard.guard';
+import { EffectsModule } from '@ngrx/effects';
+import { CursosEffects } from './state/cursos.effects';
 
 
 
@@ -29,7 +31,8 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     MaterialModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    EffectsModule.forFeature([CursosEffects])
   ],
   exports:[
     RouterModule

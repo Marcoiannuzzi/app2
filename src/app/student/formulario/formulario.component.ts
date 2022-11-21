@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
 import { AlumnoService } from 'src/app/core/Servicios/alumno.service';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
+import { agregarEstudiante } from '../state/estudiante.actions';
 
 @Component({
   selector: 'app-formulario',
@@ -13,7 +16,7 @@ export class FormularioComponent implements OnInit {
 
   formAlumno!:FormGroup;
 
-  constructor( private fb:FormBuilder, private alumnoService:AlumnoService, private route:Router) {
+  constructor( private fb:FormBuilder, private alumnoService:AlumnoService, private route:Router, private store:Store<AppState>) {
     this.formAlumno = this.fb.group({
       dni:new FormControl ('', [Validators.required, Validators.minLength(3)]),
       nombre:new FormControl ('', [Validators.required, Validators.minLength(3)]),
@@ -27,14 +30,14 @@ export class FormularioComponent implements OnInit {
   }
 
   registrarAlumno():void{
-    let nuevoAlumno:Estudiante={
+    let estudiante:Estudiante={
       id:this.formAlumno.get('dni')?.value,
       nombre:this.formAlumno.get('nombre')?.value,
       apellido:this.formAlumno.get('apellido')?.value,
       email:this.formAlumno.get('email')?.value,
       curso:this.formAlumno.get('curso')?.value,
     }
-    this.alumnoService.agregarAlumno(nuevoAlumno).subscribe(()=>alert("Alumno agregado correctamente!"));
+    this.store.dispatch(agregarEstudiante({estudiante}));
     this.route.navigate(['/alumnos']);
   }
 

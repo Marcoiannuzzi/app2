@@ -48,13 +48,6 @@
       "apellido": "Oviedo",
       "email": "loviedo@hotmail.com",
       "curso": "React"
-    },
-    {
-      "id": 26541236,
-      "nombre": "Maria",
-      "apellido": "Martinez",
-      "email": "martinezm@gmail.com",
-      "curso": "React"
     }
   ],
   "cursos": [

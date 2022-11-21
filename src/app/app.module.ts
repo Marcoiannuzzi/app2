@@ -18,7 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { ROOT_REDUCER } from './app.state';
 import { EffectsModule } from '@ngrx/effects';
-import { InscripcionesEffects } from './inscripciones/state/inscripciones.effects';
+
 
 const routes: Routes = [ 
   { path: '' , redirectTo:'inicio', pathMatch:'full'},
@@ -48,7 +48,6 @@ const routes: Routes = [
     InscripcionesModule,
     StoreModule.forRoot(ROOT_REDUCER),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forFeature([InscripcionesEffects]),
     EffectsModule.forRoot([])
   ],
   providers: [],

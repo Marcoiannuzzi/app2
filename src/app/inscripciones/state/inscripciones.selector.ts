@@ -2,7 +2,6 @@ import { createSelector } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import { InscripcionState } from './inscripciones.reducer';
 
-
 export const selectInscripcionFeature = (state: AppState) => state.listaInscripciones;
 
 export const selecCargandoInscripciones= createSelector(
@@ -10,7 +9,7 @@ export const selecCargandoInscripciones= createSelector(
   (state: InscripcionState) => state.inscripciones
 );
 
-export const selecCargando= createSelector(
+export const selecCargandoEstadoInscripciones= createSelector(
     selectInscripcionFeature,
     (state: InscripcionState) => state.cargando
   );

@@ -2,9 +2,19 @@
 <div *ngIf="loading$ | async" class="container inscripcionesConteiner d-flex justify-content-center align-items-center">
     <h2>Cargando...</h2>
 </div>
-
-<div class="container inscripcionesConteiner d-flex flex-column justify-content-center align-items-center">
-    <ul *ngFor="let inscripcion of listaInscripciones | async">
-        <li>El estudiante {{inscripcion.estudiante}} esta inscripto en el curso de {{inscripcion.curso}}</li>
-    </ul>
+<div class="d-flex flex-wrap justify-content-center align-items-center m-4">
+        <img src="../../assets/school.png" class="imgPrincipal" alt="logo principal de aplicacion">
+        <h1 class="titulo text-center p-3 m-3">Elige tu proximo Curso!</h1>   
+    </div>
+<div class="container inscripcionesConteiner d-flex flex-column align-items-center">
+    <div  class="row" >
+        <mat-form-field>
+            <mat-label>Seleccione un curso</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let curso of listaCursos$ | async" [value]="curso">{{curso.nombre}}</mat-option>
+.            </mat-select>
+        </mat-form-field>
+        <button mat-button color="primary" >Incribirme</button>    
+    </div>
 </div>
+
