@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { AppState } from 'src/app/app.state';
 import { AlumnoService } from 'src/app/core/Servicios/alumno.service';
+import { selecCargandoCursos } from 'src/app/cursos/state/cursos.selector';
+import { Cursos } from 'src/app/shared/Interfaces/Cursos';
 import { Estudiante } from 'src/app/shared/Interfaces/Estudiantes';
 import { agregarEstudiante } from '../state/estudiante.actions';
 
@@ -14,6 +17,7 @@ import { agregarEstudiante } from '../state/estudiante.actions';
 })
 export class FormularioComponent implements OnInit {
 
+  listaCursos$:Observable<Cursos[]> = new Observable<Cursos[]>()
   formAlumno!:FormGroup;
 
   constructor( private fb:FormBuilder, private alumnoService:AlumnoService, private route:Router, private store:Store<AppState>) {
@@ -27,6 +31,7 @@ export class FormularioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.listaCursos$ = this.store.select(selecCargandoCursos);
   }
 
   registrarAlumno():void{

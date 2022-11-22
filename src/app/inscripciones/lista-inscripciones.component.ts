@@ -4,6 +4,8 @@ import {  Observable } from 'rxjs';
 import { AppState } from '../app.state';
 import { selecCargandoCursos } from '../cursos/state/cursos.selector';
 import { Cursos } from '../shared/Interfaces/Cursos';
+import { Inscripcion } from '../shared/Interfaces/Inscripcion';
+import { agregarInscripcion } from './state/inscripciones.actions';
 import { selecCargandoEstadoInscripciones, selecCargandoInscripciones } from './state/inscripciones.selector';
 
 @Component({
@@ -16,6 +18,7 @@ export class ListaInscripcionesComponent implements OnInit {
   loading$:Observable<boolean> = new Observable();
   listaInscripciones$:Observable<any>= new Observable();
   listaCursos$ : Observable<Cursos[]> = new Observable();
+  cursoSeleccionado!:Cursos;
 
   constructor(
     private store:Store<AppState>
@@ -28,11 +31,10 @@ export class ListaInscripcionesComponent implements OnInit {
   }
 
   inscribir(curso:Cursos){
-    // const inscripcion:Inscripcion = {
-    //   id:0,
-    //   curso:curso,
-    //   estudiante: 
-    // }
-    // this.store.dispatch(agregarInscripcion({inscripcion}))
+    const inscripcion:Inscripcion = {
+      id:0,
+      curso:curso,
+    }
+    this.store.dispatch(agregarInscripcion({inscripcion}))
   }
 }

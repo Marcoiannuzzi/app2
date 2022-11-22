@@ -3,6 +3,5 @@ import { Estudiante } from "./Estudiantes";
 
 export interface Inscripcion {
     id:number,
-    curso:Cursos,
-    estudiante:Estudiante
+    curso:Cursos
 }

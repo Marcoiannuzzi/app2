@@ -7,7 +7,7 @@ import { AgregarApellidoPipe } from './Pipes/agregar-apellido.pipe';
 import { BooleanoATextoPipe } from './Pipes/booleano-atexto.pipe';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-encontrada.component';
 
@@ -25,12 +25,14 @@ const routes: Routes = [
     AgregarApellidoPipe,
     EstiloTitulosDirective,
     FooterComponent,
-    PaginaNoEncontradaComponent
+    PaginaNoEncontradaComponent,
+   
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   exports: [
     NavbarComponent,
@@ -39,7 +41,8 @@ const routes: Routes = [
     EstiloTitulosDirective,
     RouterModule,
     ReactiveFormsModule,
-    FooterComponent
+    FooterComponent,
+    FormsModule
   ]
 })
 export class SharedModule { }

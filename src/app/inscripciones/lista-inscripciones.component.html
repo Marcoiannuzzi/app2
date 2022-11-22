@@ -10,11 +10,11 @@
     <div  class="row" >
         <mat-form-field>
             <mat-label>Seleccione un curso</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="cursoSeleccionado">
                 <mat-option *ngFor="let curso of listaCursos$ | async" [value]="curso">{{curso.nombre}}</mat-option>
 .            </mat-select>
         </mat-form-field>
-        <button mat-button color="primary" >Incribirme</button>    
+        <button mat-button color="primary" (click)="inscribir(cursoSeleccionado)">Incribirme</button>    
     </div>
 </div>
 
