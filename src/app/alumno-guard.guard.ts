@@ -17,7 +17,7 @@ export class AlumnoGuardGuard implements CanActivate {
       var token = sessionStorage.getItem('token');
       console.log(token)
   
-      if (token === "alumno"){
+      if (token === "alumno" || token === "admin"){
         return true;
   
       }

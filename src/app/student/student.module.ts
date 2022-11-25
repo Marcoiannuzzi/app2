@@ -10,10 +10,11 @@ import { LoginGuardGuard } from '../login-guard.guard';
 
 import { EffectsModule } from '@ngrx/effects';
 import { EstudiantesEffects } from './state/estudiante.effects';
+import { AlumnoGuardGuard } from '../alumno-guard.guard';
 
 const routes: Routes = [ 
   { path: 'alumnos', component: StudentComponent },
-  { path: 'formulario', component: FormularioComponent, canActivate:[LoginGuardGuard]},
+  { path: 'formulario', component: FormularioComponent, canActivate:[AlumnoGuardGuard]},
   { path: 'editar', component:EditarComponent, canActivate:[LoginGuardGuard] }
 ]
 

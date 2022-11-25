@@ -79,22 +79,30 @@
       "id": 25145,
       "nombre": "NextJS",
       "profesor": "Gustavo",
-      "comienzo": "2022-12-03",
-      "finalizacion": "2023-01-28",
+      "comienzo": "2022-11-05",
+      "finalizacion": "2022-12-10",
       "inscripcionAbierta": "true"
+    },
+    {
+      "id": 26531,
+      "nombre": "Svelte JS",
+      "profesor": "Noelia",
+      "comienzo": "2022-11-05",
+      "finalizacion": "2023-01-07",
+      "inscripcionAbierta": "false"
     }
   ],
   "usuarios": [
     {
       "id": 1,
-      "email": "test1@test.com",
-      "password": "test1",
+      "email": "admin@test.com",
+      "password": "admin",
       "rol": "admin"
     },
     {
       "id": 2,
-      "email": "test2@test.com",
-      "password": "test2",
+      "email": "alumno@test.com",
+      "password": "alumno",
       "rol": "alumno"
     }
   ],
