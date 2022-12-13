@@ -13,7 +13,7 @@ import { EstudiantesEffects } from './state/estudiante.effects';
 import { AlumnoGuardGuard } from '../alumno-guard.guard';
 
 const routes: Routes = [ 
-  { path: 'alumnos', component: StudentComponent },
+  { path: 'alumnos', component: StudentComponent, canActivate:[AlumnoGuardGuard]},
   { path: 'formulario', component: FormularioComponent, canActivate:[AlumnoGuardGuard]},
   { path: 'editar', component:EditarComponent, canActivate:[LoginGuardGuard] }
 ]
